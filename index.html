@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya.</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="contact-fix.css">
+    <link rel="stylesheet" href="silver-progress.css">
+    <link rel="stylesheet" href="progress-fix.css">
+    
+    
+    <!-- Progress bar fix style -->
+    <style>
+        /* Force progress bars to display correctly */
+        .premium-skill-bar {
+            height: 1.2rem !important;
+            background-color: rgba(240, 240, 240, 0.5) !important;
+            border-radius: 8px !important;
+            overflow: hidden !important;
+            position: relative !important;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+            border: 1px solid rgba(220, 220, 220, 0.5) !important;
+            margin-bottom: 0.5rem !important;
+        }
+
+        .premium-skill-progress {
+            height: 100% !important;
+            background: linear-gradient(90deg, 
+                rgba(192, 192, 200, 1),
+                rgba(220, 220, 230, 1),
+                rgba(192, 192, 200, 1),
+                rgba(230, 230, 240, 1)
+            ) !important;
+            background-size: 200% 100% !important;
+            border-radius: 6px !important;
+            position: relative !important;
+            animation: silverShine 2s infinite ease-in-out !important;
+            box-shadow: 0 0 8px rgba(192, 192, 200, 0.6) !important;
+            transition: none !important;
+        }
+        
+        /* Apply correct percentages */
+        .premium-skill-item[data-skill="HTML5"] .premium-skill-progress { width: 100% !important; }
+        .premium-skill-item[data-skill="CSS3"] .premium-skill-progress { width: 100% !important; }
+        .premium-skill-item[data-skill="JavaScript"] .premium-skill-progress { width: 90% !important; }
+        .premium-skill-item[data-skill="React"] .premium-skill-progress { width: 80% !important; }
+        .premium-skill-item[data-skill="Flutter"] .premium-skill-progress { width: 95% !important; }
+        .premium-skill-item[data-skill="ReactNative"] .premium-skill-progress { width: 80% !important; }
+        .premium-skill-item[data-skill="UI/UX"] .premium-skill-progress { width: 85% !important; }
+        
+        /* Glow effect */
+        .premium-skill-progress-glow {
+            position: absolute !important;
+            top: 0 !important;
+            right: 0 !important;
+            height: 100% !important;
+            width: 60px !important;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.9), transparent) !important;
+            animation: glowMove 1.5s infinite !important;
+            pointer-events: none !important;
+        }
+        
+        /* Silver shine animation */
+        @keyframes silverShine {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Glow animation */
+        @keyframes glowMove {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader-container">
+        <div class="loader">
+            <span class="text">LOADING</span>
+            <div class="percent-container">
+                <div class="percent-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cursor -->
+    <div class="custom-cursor"></div>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-text">Adit<span class="highlight">ya.</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="#hero" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <!-- Theme toggle button removed -->
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <h1 class="glitch-text">Hi, I'm <span class="highlight" data-glitch="Aditya Suryawanshi">Aditya Suryawanshi</span></h1>
+            <h2 class="subtitle" style="font-weight:bolder;">Frontend <i class="fa-solid fa-code"></i> Developer</h2>
+            <p class="description"> Creating <span style="background: linear-gradient(120deg, #775df9 , #fcefd3 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                font-weight: bold;">Next-gen</span> web/app experiences with animation and interactivity</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn primary-btn">View My Work</a>
+                <a href="#contact" class="btn secondary-btn">Let's Talk</a>
+            </div>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+        <div class="hero-3d-container" id="hero-3d-space" style="width:100%;max-width:600px;margin:2rem auto 0 auto;min-height:350px;">
+            <spline-viewer 
+  url="https://prod.spline.design/pJmBesvLzyiLfOWa/scene.splinecode" 
+  style="width:140%;height:100%;min-height:350px;max-width:900px;display:block;transform:translateX(-60px); z-index: 100000;">
+</spline-viewer>
+          </div>
+          <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.98/build/spline-viewer.js"></script>
+        <a href="#about" class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="section-header">
+            <h2 class="section-title">About <span class="highlight">Me</span></h2>
+            <div class="section-underline"></div>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Hi , I'm 16 and i mastered the Frontend web & app development, i have 3+years of experience in this field and i worked with many clients, local businesses & startups helped them in creating a stunning landing pages ,portfolios ,business website and more... . </p>
+                <p>Currently , I'm pursuing computer science (BTech) from LNCT Bhopal (MP); and Data Science & Application (BS) from IIT Madras.</p>
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="3">0</span>
+                        <span class="stat-label">+ Years Experience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="28">0</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="28">0</span>
+                        <span class="stat-label">Happy Clients</span>
+                    </div>
+                </div>
+             
+            </div>
+            <div class="about-image">
+                <div class="image-container">
+                    <img src="img5.png" alt="Profile Image">
+                    <div class="image-decoration"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="skills-content">
+            <div class="skills-3d-container" id="skills-3d-space"></div>
+            
+            <div class="section-header">
+                <h2 class="section-title">Key<span class="highlight"> Skills</span></h2>
+                <div class="section-underline"></div>
+            </div>
+            
+            <div class="premium-skills-wrapper">
+                <div class="skills-intro">
+                    <p class="skills-description" style="color: rgb(167, 167, 167);">Driven by a passion for crafting visually stunning and interactive digital worlds.</p>
+                </div>
+                
+                <div class="premium-skills-container">
+                    <!-- Frontend Development -->
+                    <div class="premium-skills-category">
+                        <h3 class="premium-category-title"><i class="fas fa-code"></i>Web Development</h3>
+                        
+                        <div class="premium-skill-item" data-skill="HTML5">
+                            <div class="premium-skill-header">
+                                <div class="premium-skill-icon">
+                                    <i class="fab fa-html5"></i>
+                                </div>
+                                <div class="premium-skill-title">
+                                    <h4>HTML5</h4>
+                                    <span class="premium-skill-level">Expert</span>
+                                </div>
+                                <div class="premium-skill-percent">100%</div>
+                            </div>
+                            <div class="premium-skill-bar">
+                                <div class="premium-skill-progress">
+                                    <div class="premium-skill-progress-glow"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="premium-skill-item" data-skill="CSS3">
+                            <div class="premium-skill-header">
+                                <div class="premium-skill-icon">
+                                    <i class="fab fa-css3-alt"></i>
+                                </div>
+                                <div class="premium-skill-title">
+                                    <h4>CSS3</h4>
+                                    <span class="premium-skill-level">Expert</span>
+                                </div>
+                                <div class="premium-skill-percent">100%</div>
+                            </div>
+                            <div class="premium-skill-bar">
+                                <div class="premium-skill-progress">
+                                    <div class="premium-skill-progress-glow"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="premium-skill-item" data-skill="JavaScript">
+                            <div class="premium-skill-header">
+                                <div class="premium-skill-icon">
+                                    <i class="fab fa-js"></i>
+                                </div>
+                                <div class="premium-skill-title">
+                                    <h4>JavaScript</h4>
+                                    <span class="premium-skill-level">Expert</span>
+                                </div>
+                                <div class="premium-skill-percent">90%</div>
+                            </div>
+                            <div class="premium-skill-bar">
+                                <div class="premium-skill-progress">
+                                    <div class="premium-skill-progress-glow"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="premium-skill-item" data-skill="JavaScript">
+                            <div class="premium-skill-header">
+                                <div class="premium-skill-icon">
+                                    <i class="fas fa-palette"></i>
+                                </div>
+                                <div class="premium-skill-title">
+                                    <h4>Web Designing</h4>
+                                    <span class="premium-skill-level">Advanced</span>
+                                </div>
+                                <div class="premium-skill-percent">95%</div>
+                            </div>
+                            <div class="premium-skill-bar">
+                                <div class="premium-skill-progress">
+                                    <div class="premium-skill-progress-glow"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="premium-skill-item" data-skill="React">
+                            <div class="premium-skill-header">
+                                <div class="premium-skill-icon">
+                                    <i class="fab fa-react"></i>
+                                </div>
+                                <div class="premium-skill-title">
+                                    <h4>React</h4>
+                                    <span class="premium-skill-level">Advanced</span>
+                                </div>
+                                <div class="premium-skill-percent">80%</div>
+                            </div>
+                            <div class="premium-skill-bar">
+                                <div class="premium-skill-progress">
+                                    <div class="premium-skill-progress-glow"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                    <!-- App Development Skills -->
+                    <div class="premium-skills-category">
+                        <h3 class="premium-category-title"><i class="fas fa-mobile-alt"></i>App Development</h3>
+                        
+                        <!-- Flutter -->
+                        <div class="premium-skill-item" data-skill="Flutter">
+                            <div class="premium-skill-header">
+                                <div class="premium-skill-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="25">
+                                        <path d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.357z" fill="#44D1FD"/>
+                                        <path d="M14.314 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46z" fill="#027DFD"/>
+                                    </svg>
+                                </div>
+                                <div class="premium-skill-title">
+                                    <h4>Flutter</h4>
+                                    <span class="premium-skill-level">Expert</span>
+                                </div>
+                                <div class="premium-skill-percent">95%</div>
+                            </div>
+                            <div class="premium-skill-bar">
+                                <div class="premium-skill-progress">
+                                    <div class="premium-skill-progress-glow"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- React Native -->
+                        <div class="premium-skill-item" data-skill="ReactNative">
+                            <div class="premium-skill-header">
+                                <div class="premium-skill-icon">
+                                    <i class="fab fa-react"></i>
+                                </div>
+                                <div class="premium-skill-title">
+                                    <h4>React Native</h4>
+                                    <span class="premium-skill-level">Advanced</span>
+                                </div>
+                                <div class="premium-skill-percent">80%</div>
+                            </div>
+                            <div class="premium-skill-bar">
+                                <div class="premium-skill-progress">
+                                    <div class="premium-skill-progress-glow"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- UI/UX Design -->
+                        <div class="premium-skill-item" data-skill="UI/UX">
+                            <div class="premium-skill-header">
+                                <div class="premium-skill-icon">
+                                    <i class="fas fa-bezier-curve"></i>
+                                </div>
+                                <div class="premium-skill-title">
+                                    <h4>UI/UX Design</h4>
+                                    <span class="premium-skill-level">Advanced</span>
+                                </div>
+                                <div class="premium-skill-percent">85%</div>
+                            </div>
+                            <div class="premium-skill-bar">
+                                <div class="premium-skill-progress">
+                                    <div class="premium-skill-progress-glow"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skills-footer">
+                <a href="#projects" class="skills-cta">View My Work</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="section-header">
+            <h2 class="section-title">My <span class="highlight">Projects</span></h2>
+            <div class="section-underline"></div>
+        </div>
+        <div class="projects-filter">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="web">Web App</button>
+            <button class="filter-btn" data-filter="ui">UI Design</button>
+            <button class="filter-btn" data-filter="3d">3D/Animation</button>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card" data-category="web">
+                <div class="project-img">
+                    <img src="https://via.placeholder.com/600x400" alt="E-commerce Website">
+                    <div class="project-overlay">
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">E-commerce Website</h3>
+                    <p class="project-desc">A fully responsive e-commerce platform with product filtering, cart functionality, and payment integration.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-category="ui">
+                <div class="project-img">
+                    <img src="https://via.placeholder.com/600x400" alt="Dashboard UI">
+                    <div class="project-overlay">
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Dashboard UI</h3>
+                    <p class="project-desc">A clean and modern dashboard interface with data visualization and real-time updates.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Vue.js</span>
+                        <span class="tech-tag">D3.js</span>
+                        <span class="tech-tag">Firebase</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-category="3d">
+                <div class="project-img">
+                    <img src="https://via.placeholder.com/600x400" alt="3D Product Viewer">
+                    <div class="project-overlay">
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">3D Product Viewer</h3>
+                    <p class="project-desc">An interactive 3D product visualization tool allowing users to rotate, zoom, and explore products in detail.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Three.js</span>
+                        <span class="tech-tag">WebGL</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-category="web">
+                <div class="project-img">
+                    <img src="https://via.placeholder.com/600x400" alt="Social Media App">
+                    <div class="project-overlay">
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">Social Media App</h3>
+                    <p class="project-desc">A feature-rich social platform with real-time messaging, post creation, and user interactions.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">GraphQL</span>
+                        <span class="tech-tag">Socket.io</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="projects-cta">
+            <a href="#" class="btn primary-btn">View All Projects</a>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="section-header">
+            <h2 class="section-title">Client <span class="highlight">Testimonials</span></h2>
+            <div class="section-underline"></div>
+        </div>
+        <div class="testimonials-container">
+            <div class="testimonial-card">
+                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                <p class="testimonial-text">"Working with this developer was an absolute pleasure. They delivered a stunning website that exceeded our expectations and helped grow our business."</p>
+                <div class="testimonial-author">
+                    <img src="https://via.placeholder.com/60x60" alt="Client" class="author-img">
+                    <div class="author-info">
+                        <h4 class="author-name">John Smith</h4>
+                        <p class="author-role">CEO, Tech Innovators</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                <p class="testimonial-text">"Incredibly talented developer who transformed our outdated website into a modern, responsive platform. The attention to detail was impressive."</p>
+                <div class="testimonial-author">
+                    <img src="https://via.placeholder.com/60x60" alt="Client" class="author-img">
+                    <div class="author-info">
+                        <h4 class="author-name">Sarah Johnson</h4>
+                        <p class="author-role">Marketing Director, CreativeMinds</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                <p class="testimonial-text">"The 3D animations and interactions they implemented on our website have significantly increased user engagement and conversion rates. Highly recommended!"</p>
+                <div class="testimonial-author">
+                    <img src="https://via.placeholder.com/60x60" alt="Client" class="author-img">
+                    <div class="author-info">
+                        <h4 class="author-name">Michael Chen</h4>
+                        <p class="author-role">Founder, Digital Solutions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-controls">
+            <button class="control-btn prev"><i class="fas fa-chevron-left"></i></button>
+            <div class="control-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <button class="control-btn next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="section-header">
+            <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
+            <div class="section-underline"></div>
+        </div>
+        <div class="contact-content">
+            <div class="contact-info-box">
+                <h3>Contact Information</h3>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>adityacodearena@gmail.com</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>+91 8839624792</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Madhya Pradesh, India</span>
+                </div>
+                <div class="contact-socials">
+                    <a href="#" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+
+            <div class="contact-form-container">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <label for="name">Your Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <label for="email">Your Email</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        <label for="subject">Subject</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                        <label for="message">Your Message</label>
+                    </div>
+                    <button type="submit" class="btn primary-btn">Send Message <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-glow"></div>
+            
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-text">ADIT<span class="highlight">YA</span></span>
+                    </div>
+                    
+                    <div class="social-links-wrapper">
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-contact">
+                    <div class="contact-group">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <a href="mailto:adityacodearena@gmail.com" class="contact-value">adityacodearena@gmail.com</a>
+                    </div>
+                    <div class="contact-group">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <a href="tel:+91 8839624792" class="contact-value">+91 8839624792</a>
+                    </div>
+                    <div class="contact-group">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <span class="contact-value">Madhya Pradesh, India</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">&copy; <span id="current-year">2023</span> AdityaSuryawanshi. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.4/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.4/dist/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+    <script src="glitch.js"></script>
+    <script src="progress-fix.js"></script>
+    <script>
+        // Update current year for copyright
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Debug script to ensure contact section is visible
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                console.log("Debug script running to fix contact section");
+                const contactElements = {
+                    section: document.querySelector('.contact-section'),
+                    content: document.querySelector('.contact-content'),
+                    info: document.querySelector('.contact-info'),
+                    form: document.querySelector('.contact-form-container'),
+                    items: document.querySelectorAll('.contact-item'),
+                    social: document.querySelectorAll('.contact-social .social-icon')
+                };
+                
+                // Force visibility
+                if (contactElements.section) {
+                    contactElements.section.style.display = 'block';
+                    contactElements.section.style.opacity = '1';
+                    contactElements.section.style.visibility = 'visible';
+                }
+                
+                if (contactElements.content) {
+                    contactElements.content.style.display = 'grid';
+                    contactElements.content.style.opacity = '1';
+                    contactElements.content.style.visibility = 'visible';
+                }
+                
+                if (contactElements.info) {
+                    contactElements.info.style.display = 'block';
+                    contactElements.info.style.opacity = '1';
+                    contactElements.info.style.visibility = 'visible';
+                }
+                
+                if (contactElements.form) {
+                    contactElements.form.style.display = 'block';
+                    contactElements.form.style.opacity = '1';
+                    contactElements.form.style.visibility = 'visible';
+                }
+                
+                contactElements.items.forEach(item => {
+                    item.style.display = 'flex';
+                    item.style.opacity = '1';
+                    item.style.visibility = 'visible';
+                });
+                
+                contactElements.social.forEach(icon => {
+                    icon.style.display = 'flex';
+                    icon.style.opacity = '1';
+                    icon.style.visibility = 'visible';
+                });
+                
+                console.log("Contact section visibility enforced");
+                
+                // Fix footer contact icons
+                const footerContactIcons = document.querySelectorAll('.footer .contact-group .contact-icon');
+                footerContactIcons.forEach(icon => {
+                    icon.style.width = '40px';
+                    icon.style.height = '40px';
+                    icon.style.display = 'flex';
+                    icon.style.alignItems = 'center';
+                    icon.style.justifyContent = 'center';
+                    icon.style.borderRadius = '50%';
+                    icon.style.background = 'rgba(255, 255, 255, 0.05)';
+                    icon.style.border = '1px solid rgba(255, 255, 255, 0.1)';
+                    icon.style.color = 'rgba(255, 255, 255, 0.8)';
+                    icon.style.fontSize = '1.5rem';
+                    icon.style.opacity = '1';
+                    icon.style.visibility = 'visible';
+                });
+                
+                // Fix contact info box
+                const contactInfo = document.querySelector('.contact-info');
+                if (contactInfo) {
+                    contactInfo.style.padding = '4rem';
+                    contactInfo.style.borderRadius = '20px';
+                    contactInfo.style.background = 'rgba(255, 255, 255, 0.95)';
+                    contactInfo.style.backdropFilter = 'blur(10px)';
+                    contactInfo.style.border = '1px solid rgba(255, 255, 255, 0.1)';
+                    contactInfo.style.boxShadow = '0 20px 50px rgba(0, 0, 0, 0.08), 0 5px 15px rgba(108, 99, 255, 0.05)';
+                    contactInfo.style.display = 'block';
+                    contactInfo.style.opacity = '1';
+                    contactInfo.style.visibility = 'visible';
+                    contactInfo.style.zIndex = '5';
+                }
+                
+                // Dynamically load footer-fix.js script
+                const footerFixScript = document.createElement('script');
+                footerFixScript.src = 'footer-fix.js';
+                document.body.appendChild(footerFixScript);
+                
+            }, 2000);
+        });
+    </script>
+    
+    <!-- Progress bar fix script -->
+    <script>
+        // Fix progress bars to ensure they display correctly
+        window.addEventListener('load', function() {
+            // Run immediately and then again after a delay to override any animations
+            fixProgressBars();
+            setTimeout(fixProgressBars, 1000);
+            setTimeout(fixProgressBars, 2500);
+        });
+        
+        function fixProgressBars() {
+            // Get all progress bars
+            const progressBars = document.querySelectorAll('.premium-skill-progress');
+            
+            // Fix each progress bar
+            progressBars.forEach(bar => {
+                // Get the percentage from the parent's percentage div
+                const percentText = bar.closest('.premium-skill-item').querySelector('.premium-skill-percent').textContent;
+                const percent = percentText.replace('%', '');
+                
+                // Apply silver styling and force correct width
+                bar.style.background = "linear-gradient(90deg, rgba(192, 192, 200, 1), rgba(220, 220, 230, 1), rgba(192, 192, 200, 1), rgba(230, 230, 240, 1))";
+                bar.style.backgroundSize = "200% 100%";
+                bar.style.width = percent + "%";
+                bar.style.boxShadow = "0 0 8px rgba(192, 192, 200, 0.6)";
+                bar.style.animation = "silverShine 2s infinite ease-in-out";
+                
+                // Ensure bar container has proper styling
+                const barContainer = bar.closest('.premium-skill-bar');
+                barContainer.style.height = "1.2rem";
+                barContainer.style.backgroundColor = "rgba(240, 240, 240, 0.5)";
+                barContainer.style.boxShadow = "inset 0 2px 4px rgba(0, 0, 0, 0.1)";
+                barContainer.style.border = "1px solid rgba(220, 220, 220, 0.5)";
+                
+                // Fix glowing effect
+                const glow = bar.querySelector('.premium-skill-progress-glow');
+                if (glow) {
+                    glow.style.width = "60px";
+                    glow.style.background = "linear-gradient(to right, transparent, rgba(255, 255, 255, 0.9), transparent)";
+                }
+            });
+            
+            console.log("Progress bars fixed with correct percentages and silver styling");
+        }
+    </script>
+
+</body>
+</html>
