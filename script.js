@@ -1196,11 +1196,53 @@ document.addEventListener('DOMContentLoaded', () => {
         element.addEventListener('mouseleave', shrinkCursor);
     });
     
-    navToggle.addEventListener('click', toggleMenu);
+    // ==================== Mobile Navigation ====================
+// Improved mobile navigation with animation
+navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
     
-    allNavLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
+    // Change icon based on menu state
+    if (navLinks.classList.contains('active')) {
+        navToggle.innerHTML = '<i class="fas fa-times"></i>';
+        // Prevent body scrolling when menu is open
+        document.body.style.overflow = 'hidden';
+        
+        // Animate links with staggered delay
+        allNavLinks.forEach((link, index) => {
+            link.style.opacity = '0';
+            link.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                link.style.transition = 'all 0.3s ease';
+                link.style.opacity = '1';
+                link.style.transform = 'translateY(0)';
+            }, 100 + (index * 50));
+        });
+    } else {
+        navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        // Re-enable scrolling when menu is closed
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Close mobile menu when clicking on a link with smooth animation
+allNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        document.body.style.overflow = 'auto';
     });
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('active') && 
+        !navLinks.contains(e.target) && 
+        !navToggle.contains(e.target)) {
+        navLinks.classList.remove('active');
+        navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        document.body.style.overflow = 'auto';
+    }
+});
     
   // Theme toggle event listener removed
     window.addEventListener('scroll', handleScroll);
