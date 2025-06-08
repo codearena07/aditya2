@@ -2,31 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="theme-color" content="#6c63ff">
-    <meta name="description" content="Frontend Developer portfolio showcasing web and app development skills.">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title>Aditya.</title>
-    
-    <!-- Preload critical assets -->
-    <link rel="preload" href="styles.css" as="style">
-    <link rel="preload" href="responsive-fix.css" as="style">
-    <link rel="preload" href="script.js" as="script">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" as="style">
-    
-    <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Raleway:wght@300;400;500&family=Comfortaa:wght@400;500;700&family=Montserrat:wght@300;400;500;600;700;800;900&family=Bebas+Neue&family=Orbitron:wght@400;500;600;700;800;900&family=Righteous&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="contact-fix.css">
     <link rel="stylesheet" href="silver-progress.css">
     <link rel="stylesheet" href="progress-fix.css">
-    <link rel="stylesheet" href="responsive-fix.css">
+    
     
     <!-- Progress bar fix style -->
     <style>
@@ -91,285 +78,1192 @@
             0% { transform: translateX(-100%); }
             100% { transform: translateX(100%); }
         }
-
-        /* Touch active state for mobile */
-        .touch-active {
-            transform: scale(0.97) !important;
-            opacity: 0.8 !important;
-        }
-
-        /* Initial body state - hidden until loaded to prevent FOUC */
-        body {
-            opacity: 0.6;
-            transition: opacity 0.3s ease;
-        }
-
-        /* Fix mobile scrolling issues */
-        @media (max-width: 767px) {
-            body {
-                position: relative;
-                width: 100%;
-                overflow-x: hidden;
-            }
-        }
         
-        /* Fix for contact form scrolling issues */
-        .contact-section {
-            overflow: visible !important;
-        }
-        
-        .contact-content {
-            overflow: visible !important;
-        }
-        
-        .contact-form-container {
-            overflow: visible !important;
-        }
-        
-        .contact-form {
-            overflow: visible !important;
-        }
-        
-        .form-group {
-            overflow: visible !important;
-        }
-        
-        /* Project card color fixes */
-        .project-card {
-            background-color: rgba(28, 28, 32, 0.7) !important;
-        }
-        
-        .project-info {
-            background-color: rgba(28, 28, 32, 0.7) !important;
-        }
-        
-        .project-title {
-            color: #fff !important;
-        }
-        
-        .project-desc {
-            color: #aaa !important;
-        }
-        
-        .tech-tag {
-            background-color: rgba(108, 99, 255, 0.15) !important;
-            color: #6c63ff !important;
-            border: 1px solid rgba(108, 99, 255, 0.3) !important;
-        }
-        
-        /* Fix header */
-        nav {
-            height: 80px !important;
-        }
-        
-        /* Make hero section take full screen */
-        .hero-section {
-            min-height: 100vh !important;
-            padding-top: 80px !important;
-            box-sizing: border-box !important;
-        }
-    </style>
-
-    <!-- Premium styles -->
-    <style>
-        /* Premium font styling for the entire site */
-        body, html {
-            font-family: 'Poppins', 'Montserrat', sans-serif !important;
-            letter-spacing: 0.2px !important;
-        }
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Space Grotesk', 'Poppins', sans-serif !important;
-            letter-spacing: -0.5px !important;
-            line-height: 1.3 !important;
-        }
-        
-        /* Header styling */
-        nav {
-            height: 90px !important;
-        }
-        
-        .nav-container {
-            max-width: 1200px !important;
-            margin: 0 auto !important;
-        }
-        
-        .logo-text {
-            font-size: 2.8rem !important;
-            letter-spacing: -1px !important;
-        }
-        
-        .nav-toggle {
-            width: 50px !important;
-            height: 50px !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            background-color: rgba(108,99,255,0.1) !important;
-            border-radius: 50% !important;
-            font-size: 2.4rem !important;
-            color: #6c63ff !important;
-        }
-        
-        .nav-link {
-            font-size: 1.8rem !important;
-            font-weight: 600 !important;
-        }
-        
-        /* Reposition hero section - 3D model as background with text overlay */
-        .hero-section {
-            position: relative !important;
-            overflow: hidden !important;
-        }
-        
+        /* Hide Spline logo - multiple approaches */
         .hero-3d-container {
-            position: absolute !important;
-            top: 50% !important;
-            left: 50% !important;
-            transform: translate(-50%, -50%) !important;
-            width: 100% !important;
-            max-width: 700px !important;
-            min-height: 450px !important;
-            z-index: 1 !important;
-            opacity: 0.85 !important;
+            position: relative;
+            overflow: hidden;
         }
         
-        spline-viewer {
-            height: 450px !important;
-            width: 100% !important;
+        .spline-watermark-blocker {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 120px;
+            height: 36px;
+            background-color: #111111;
+            z-index: 999 !important;
+            pointer-events: none;
         }
         
-        .hero-content {
-            position: relative !important;
-            z-index: 2 !important;
-            padding-top: 4rem !important;
-        }
-        
-        /* Hero text with better spacing and visibility */
-        .glitch-text {
-            text-shadow: 0 2px 10px rgba(0,0,0,0.4) !important;
-        }
-        
-        .subtitle {
-            text-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
-        }
-        
-        .description {
-            text-shadow: 0 2px 6px rgba(0,0,0,0.3) !important;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 767px) {
-            .hero-3d-container {
-                min-height: 380px !important;
-                max-width: 600px !important;
-                top: 45% !important;
-            }
-            
-            spline-viewer {
-                height: 380px !important;
-            }
-            
-            .about-image {
-                margin-bottom: 0 !important;
-            }
-        }
-        
-        @media (max-width: 575px) {
-            .hero-3d-container {
-                min-height: 350px !important;
-                max-width: 500px !important;
-                top: 40% !important;
-                opacity: 0.75 !important;
-            }
-            
-            spline-viewer {
-                height: 350px !important;
-            }
-            
-            .about-image {
-                margin-bottom: 0 !important;
-            }
-        }
-        
-        /* About section improvements */
-        .about-image img {
-            max-width: 100% !important;
-            width: 100% !important;
-            border-radius: 25px !important;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
-        }
-        
-        .about-image {
-            margin-bottom: 0 !important; /* Remove bottom margin */
-        }
-        
-        .stats-container {
-            display: flex !important;
-            justify-content: center !important;
-            margin-top: 3rem !important;
-            gap: 2.5rem !important;
-            flex-wrap: wrap !important;
-        }
-        
-        .stat-item {
-            padding: 1.5rem !important;
-            background: rgba(108,99,255,0.05) !important;
-            border-radius: 15px !important;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
-            border: 1px solid rgba(255,255,255,0.05) !important;
-            width: 120px !important;
-            text-align: center !important;
-        }
-        
-        .stat-number {
-            font-size: 4rem !important;
-            font-weight: 700 !important;
-            color: #6c63ff !important;
-            text-shadow: 0 2px 5px rgba(108,99,255,0.3) !important;
-        }
-        
-        .stat-label {
-            font-size: 1.5rem !important;
-            font-weight: 500 !important;
-        }
-        
-        /* Hide project filters */
-        .projects-filter {
+        /* Hide any bottom-right watermarks in the viewer */
+        spline-viewer::part(logo),
+        spline-viewer::part(watermark),
+        spline-viewer::shadow(logo),
+        spline-viewer::shadow(watermark),
+        spline-viewer div[class*="logo"],
+        spline-viewer div[class*="watermark"],
+        spline-viewer a[class*="logo"],
+        spline-viewer a[class*="watermark"] {
             display: none !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
         }
         
-        /* Premium footer */
+        /* Additional style to match the background color */
+        .hero-section {
+            background-color: #111111;
+        }
+
+        /* Premium Footer Styling */
         .footer {
-            position: relative !important;
-            background: linear-gradient(to bottom, rgba(18, 18, 22, 0.9), rgba(12, 12, 15, 0.95)) !important;
-        }
-        
-        .footer::before {
-            content: "" !important;
-            position: absolute !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100% !important;
-            height: 1px !important;
-            background: linear-gradient(90deg, transparent, rgba(108, 99, 255, 0.5), transparent) !important;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(to bottom, rgba(22, 22, 32, 0.98), rgba(16, 16, 24, 0.98));
+            padding: 3rem 0 1.5rem; /* Reduced padding */
+            border-top: 1px solid rgba(108, 99, 255, 0.2);
         }
         
         .footer-inner {
-            padding: 6rem 2rem 3rem !important;
-            max-width: 1200px !important;
-            margin: 0 auto !important;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-glow {
+            position: absolute;
+            top: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(108, 99, 255, 0.3) 0%, rgba(108, 99, 255, 0.1) 30%, rgba(108, 99, 255, 0) 70%);
+            pointer-events: none;
+            opacity: 0.7;
+            z-index: 1;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem; /* Reduced margin */
         }
         
         .footer-logo .logo-text {
-            font-size: 3.5rem !important;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 0 15px rgba(108, 99, 255, 0.5);
+            transition: all 0.3s ease;
         }
         
-        .social-link {
-            width: 50px !important;
-            height: 50px !important;
+        .footer-logo .logo-text .highlight {
+            color: #6c63ff;
+            text-shadow: 0 0 10px rgba(108, 99, 255, 0.7);
+        }
+        
+        .footer-logo:hover .logo-text {
+            text-shadow: 0 0 20px rgba(108, 99, 255, 0.8);
+        }
+        
+        .social-links-wrapper {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .footer .social-link {
+            width: 42px;
+            height: 42px;
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .footer .social-link svg {
+            fill: rgba(255, 255, 255, 0.8);
+            width: 18px;
+            height: 18px;
+            transition: all 0.3s ease;
+        }
+        
+        .footer .social-link:hover {
+            background: rgba(108, 99, 255, 0.2);
+            border-color: rgba(108, 99, 255, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 0 10px rgba(108, 99, 255, 0.3);
+        }
+        
+        .footer .social-link:hover svg {
+            fill: white;
+            transform: scale(1.1);
+        }
+        
+        .footer-divider {
+            height: 1px;
+            background: linear-gradient(to right, 
+                rgba(108, 99, 255, 0), 
+                rgba(108, 99, 255, 0.3), 
+                rgba(108, 99, 255, 0.5), 
+                rgba(108, 99, 255, 0.3), 
+                rgba(108, 99, 255, 0));
+            margin-bottom: 1.2rem; /* Reduced margin */
+            position: relative;
+        }
+        
+        .footer-divider:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 1px;
+            background: #6c63ff;
+            filter: blur(2px);
+            opacity: 0.8;
+        }
+        
+        .footer-bottom {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 0.5rem; /* Reduced padding */
+        }
+        
+        .copyright {
+            color: rgba(255, 255, 255, 0.6);
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 400;
+            text-align: center;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                gap: 1.5rem;
+                margin-bottom: 2rem;
+            }
+        }
+        
+        /* Enhanced Header Styles - Fixed Positioning */
+        nav {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            z-index: 1000 !important;
+            background-color: rgba(10, 10, 15, 0.8) !important;
+            backdrop-filter: blur(8px) !important;
+            -webkit-backdrop-filter: blur(8px) !important;
+            border-bottom: 1px solid rgba(108, 99, 255, 0.15) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2) !important;
+            padding: 0 !important;
+            height: 75px !important;
+            max-height: 75px !important;
+            min-height: 75px !important;
+            overflow: visible !important;
+            /* Only transition these properties */
+            transition: background-color 0.3s ease, backdrop-filter 0.3s ease !important;
+        }
+        
+        .nav-container {
+            position: relative !important;
+            display: flex !important;
+            max-width: 1400px !important;
+            margin: 0 auto !important;
+            padding: 0 2rem !important;
+            height: 75px !important;
+            max-height: 75px !important;
+            min-height: 75px !important;
+        }
+        
+        .logo {
+            position: absolute !important;
+            left: 2rem !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            display: flex !important;
+            align-items: center !important;
+            height: auto !important;
+        }
+        
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif !important;
+            font-size: 2.5rem !important;
+            font-weight: 700 !important;
+            letter-spacing: 1px !important;
+            color: rgba(255, 255, 255, 0.95) !important;
+            text-decoration: none !important;
+            line-height: 1 !important;
+        }
+        
+        .logo-text .highlight {
+            color: #6c63ff !important;
+        }
+        
+        .nav-links {
+            position: absolute !important;
+            right: 2rem !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            display: flex !important;
+            align-items: center !important;
+            height: auto !important;
+        }
+        
+        .nav-link {
+            position: relative !important;
+            color: rgba(255, 255, 255, 0.8) !important;
+            text-decoration: none !important;
+            font-size: 1.2rem !important;
+            font-weight: 500 !important;
+            letter-spacing: 0.5px !important;
+            margin: 0 1.5rem !important;
+            padding: 0 !important;
+            display: flex !important;
+            align-items: center !important;
+            height: auto !important;
+            transition: color 0.3s ease !important;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: #6c63ff !important;
+        }
+        
+        .nav-link::after {
+            content: '' !important;
+            position: absolute !important;
+            bottom: -20px !important;
+            left: 0 !important;
+            width: 0 !important;
+            height: 3px !important;
+            background: #6c63ff !important;
+            transition: width 0.3s ease !important;
+        }
+        
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100% !important;
+        }
+        
+        .nav-toggle {
+            position: absolute !important;
+            right: 2rem !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            display: none !important;
+            font-size: 1.8rem !important;
+            color: rgba(255, 255, 255, 0.9) !important;
+            cursor: pointer !important;
+            z-index: 10 !important;
+            height: auto !important;
+        }
+        
+        /* Scrolled state - only color/blur changes */
+        nav.scrolled {
+            background-color: rgba(10, 10, 15, 0.9) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+        }
+        
+        /* Media query for mobile */
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block !important;
+            }
+            
+            .nav-links {
+                position: absolute !important;
+                top: 75px !important;
+                left: 0 !important;
+                right: 0 !important;
+                flex-direction: column !important;
+                background-color: rgba(10, 10, 15, 0.95) !important;
+                backdrop-filter: blur(12px) !important;
+                -webkit-backdrop-filter: blur(12px) !important;
+                border-bottom: 1px solid rgba(108, 99, 255, 0.15) !important;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2) !important;
+                height: auto !important;
+                max-height: 0 !important;
+                overflow: hidden !important;
+                transition: max-height 0.3s ease !important;
+                z-index: 1000 !important;
+                padding: 0 !important;
+                transform: none !important;
+            }
+            
+            .nav-links.active {
+                max-height: 380px !important;
+                padding: 1rem 0 !important;
+            }
+            
+            .nav-link {
+                width: 100% !important;
+                text-align: center !important;
+                margin: 0.7rem 0 !important;
+                padding: 0.8rem 0 !important;
+                height: auto !important;
+                justify-content: center !important;
+                font-size: 1.3rem !important;
+            }
+            
+            .nav-link::after {
+                bottom: -2px !important;
+            }
+        }
+
+        /* Add top margin to body to account for fixed header */
+        body {
+            padding-top: 75px !important;
+        }
+        
+        /* Adjust hero section to account for fixed header */
+        .hero-section {
+            margin-top: -75px !important;
+            padding-top: 75px !important;
         }
     </style>
+    
+    <style>
+        /* Mobile Menu Enhancement */
+        body.menu-open {
+            overflow: hidden;
+        }
+        
+        @media (max-width: 767px) {
+            .nav-toggle {
+                display: block !important;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+            }
+            
+            .nav-toggle:active {
+                transform: scale(0.9);
+            }
+            
+            .nav-links {
+                position: fixed !important;
+                top: 65px !important;
+                left: 0 !important;
+                right: 0 !important;
+                background-color: rgba(10, 10, 15, 0.95) !important;
+                backdrop-filter: blur(10px) !important;
+                -webkit-backdrop-filter: blur(10px) !important;
+                max-height: 0 !important;
+                overflow: hidden !important;
+                transition: max-height 0.3s ease !important;
+                z-index: 1000 !important;
+                transform: none !important;
+            }
+            
+            .nav-links.active {
+                max-height: 100vh !important;
+                height: auto !important;
+                padding: 1.5rem 0 !important;
+                overflow-y: auto !important;
+            }
+            
+            .nav-link {
+                opacity: 0;
+                transform: translateY(10px);
+                transition: opacity 0.3s ease, transform 0.3s ease;
+                margin: 1rem 0 !important;
+                font-size: 1.5rem !important;
+            }
+            
+            .nav-links.active .nav-link {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            .nav-links.active .nav-link:nth-child(1) { transition-delay: 0.1s; }
+            .nav-links.active .nav-link:nth-child(2) { transition-delay: 0.15s; }
+            .nav-links.active .nav-link:nth-child(3) { transition-delay: 0.2s; }
+            .nav-links.active .nav-link:nth-child(4) { transition-delay: 0.25s; }
+            .nav-links.active .nav-link:nth-child(5) { transition-delay: 0.3s; }
+            
+            .nav-link::after {
+                bottom: -5px !important;
+            }
+        }
+        
+        /* Performance optimization for mobile */
+        @media (max-width: 767px) {
+            .hero-3d-container {
+                transform: scale(0.8) translateX(0) !important;
+                margin: 0 auto !important;
+            }
+            
+            .testimonial-card .card-shine {
+                display: none;
+            }
+            
+            .animated-name {
+                animation-duration: 2s;
+            }
+        }
+        
+        /* Touch device enhancements */
+        @media (hover: none) {
+            .project-card:hover .project-overlay {
+                opacity: 1;
+            }
+            
+            .project-links {
+                opacity: 0.9;
+            }
+            
+            .social-link:active {
+                transform: translateY(-3px);
+            }
+            
+            .control-btn:active {
+                transform: scale(0.92);
+            }
+        }
+        
+        /* Mobile hero section fixes */
+        @media (max-width: 767px) {
+            /* Center hero content */
+            .hero-content {
+                margin-left: 0 !important;
+                padding: 0 1.5rem !important;
+                padding-top: 220px !important; /* Increased padding to shift content further down */
+                text-align: center !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                position: relative !important;
+                z-index: 2 !important;
+            }
+            
+            /* Fix 3D model positioning and visibility */
+            .hero-3d-container {
+                transform: none !important;
+                margin: 0 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                height: 350px !important;
+                min-height: 350px !important;
+                position: absolute !important;
+                top: 70px !important;
+                left: 0 !important;
+                right: 0 !important;
+                z-index: 1 !important;
+                opacity: 1 !important; /* Full opacity for Spline model */
+                display: block !important;
+                overflow: visible !important;
+                transform: translateX(-25%) !important; /* Mobile view only - shift left to center the model */
+            }
+            
+            /* Reset any transforms on Spline viewer to prevent conflicts */
+            spline-viewer {
+                transform: none !important;
+                width: 100% !important;
+                height: 100% !important;
+                opacity: 1 !important;
+                position: relative !important;
+                left: 0 !important;
+                display: block !important;
+                transform: translateX(-25%) !important; /* Apply right shift directly to spline-viewer */
+            }
+            
+            /* Reset container transform */
+            .hero-3d-container {
+                transform: none !important;
+            }
+            
+            /* Hide Three.js canvases in mobile */
+            #hero-3d-space canvas:not([data-spline-viewer]) {
+                display: none !important;
+                visibility: hidden !important;
+                opacity: 0 !important;
+                pointer-events: none !important;
+                height: 0 !important;
+                width: 0 !important;
+                position: absolute !important;
+                z-index: -9999 !important;
+            }
+            
+            /* Hide spline watermark using CSS instead of a div */
+            spline-viewer::part(logo),
+            spline-viewer::part(watermark),
+            spline-viewer::shadow(logo),
+            spline-viewer::shadow(watermark),
+            spline-viewer div[class*="logo"],
+            spline-viewer div[class*="watermark"],
+            spline-viewer a[class*="logo"],
+            spline-viewer a[class*="watermark"] {
+                display: none !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+            }
+            
+            spline-viewer {
+                transform: translateX(-50%) scale(1.3) !important; /* Center horizontally and scale */
+                width: 100% !important;
+                height: 100% !important;
+                opacity: 0.7 !important; /* Increased opacity to make model more visible */
+                position: relative !important;
+                left: 50% !important;
+            }
+            
+            /* Add space for model to appear behind text */
+            .hero-section {
+                position: relative !important;
+                overflow: hidden !important;
+                padding-top: 65px !important;
+                min-height: 100vh !important;
+            }
+            
+            /* Ensure text is readable over the model */
+            .hero-title, .animated-name, .subtitle, .premium-description p {
+                text-shadow: 0 0 10px rgba(0, 0, 0, 0.8) !important;
+            }
+            
+            /* Fix bluish line position on mobile */
+            .with-line {
+                padding-left: 45px !important; /* Add padding for the line */
+                position: relative !important;
+                display: inline-block !important; /* Allow the line to be positioned relative to the text */
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+            
+            .with-line:before {
+                content: "" !important;
+                position: absolute !important;
+                left: 0 !important; /* Position at the start of the text */
+                top: 50% !important; /* Center vertically */
+                width: 30px !important;
+                height: 2px !important;
+                background: linear-gradient(to right, #775df9, rgba(255, 255, 255, 0.2)) !important;
+                transform: translateY(-50%) !important; /* Center the line vertically */
+            }
+            
+            /* Make CTA buttons stand out more */
+            .cta-buttons {
+                position: relative !important;
+                z-index: 3 !important;
+                margin-top: 2rem !important;
+            }
+            
+            /* Center social links */
+            .social-links {
+                display: flex !important;
+                justify-content: center !important;
+                margin: 2rem auto !important;
+            }
+        }
+    </style>
+    
+    <style>
+        /* Comprehensive Responsive Design - Mobile & Tablet Only */
+        @media (max-width: 991px) {
+            /* General responsive adjustments */
+            .section-title {
+                font-size: 2.8rem;
+            }
+            
+            /* Hero section adjustments */
+            .hero-content {
+                padding: 0 1.5rem;
+                margin-left: 0 !important;
+                text-align: center;
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            .hero-title {
+                font-size: 3rem !important;
+            }
+            
+            .animated-name {
+                font-size: 4rem !important;
+                letter-spacing: 3px !important;
+            }
+            
+            .premium-description {
+                margin: 1.5rem auto;
+                max-width: 100%;
+                text-align: center;
+            }
+            
+            .premium-description p {
+                font-size: 1.5rem !important;
+            }
+            
+            .with-line {
+                font-size: 1.4rem !important;
+                padding-left: 10px !important;
+            }
+            
+            .with-line:before {
+                width: 20px !important;
+            }
+            
+            .hero-3d-container {
+                transform: translateX(0) !important;
+                margin-top: 1rem !important;
+            }
+            
+            .cta-buttons {
+                justify-content: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+        
+        /* Tablet specific styles */
+        @media (min-width: 768px) and (max-width: 991px) {
+            /* Testimonial cards */
+            .testimonial-card .card-inner {
+                padding: 2rem;
+            }
+            
+            .testimonial-text {
+                font-size: 1.6rem !important;
+            }
+            
+            /* About section */
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .about-image {
+                order: -1;
+                margin: 0 auto;
+                max-width: 400px;
+            }
+            
+            .about-text {
+                text-align: center;
+            }
+            
+            .stats-container {
+                justify-content: center;
+            }
+            
+            /* Projects grid */
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Mobile specific styles */
+        @media (max-width: 767px) {
+            /* General */
+            body {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            section {
+                padding: 4rem 1rem;
+            }
+            
+            /* Hero section */
+            .hero-title {
+                font-size: 2.5rem !important;
+            }
+            
+            .animated-name {
+                font-size: 3.2rem !important;
+                letter-spacing: 2px !important;
+            }
+            
+            .premium-description p {
+                font-size: 1.3rem !important;
+            }
+            
+            .with-line {
+                font-size: 1.2rem !important;
+            }
+            
+            .hero-3d-container {
+                min-height: 250px !important;
+            }
+            
+            /* About section */
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .about-image {
+                order: -1;
+                margin: 0 auto;
+                max-width: 280px;
+            }
+            
+            .about-text {
+                text-align: center;
+                font-size: 0.9rem;
+            }
+            
+            .stats-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+            
+            .stat-item {
+                width: 100%;
+            }
+            
+            /* Skills section */
+            .premium-skills-container {
+                flex-direction: column;
+            }
+            
+            .premium-skills-category {
+                width: 100%;
+                margin-bottom: 2rem;
+            }
+            
+            /* Projects section */
+            .projects-filter {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            
+            .filter-btn {
+                font-size: 0.8rem;
+                padding: 0.5rem 0.8rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            /* Testimonial section */
+            .testimonials-container {
+                min-height: 450px;
+            }
+            
+            .testimonial-card .card-inner {
+                padding: 1.5rem;
+            }
+            
+            .testimonial-text {
+                font-size: 1.4rem !important;
+                line-height: 1.5;
+                margin-bottom: 1.5rem;
+            }
+            
+            .author-name {
+                font-size: 1.4rem !important;
+            }
+            
+            .author-role {
+                font-size: 1rem !important;
+            }
+            
+            .author-img-container {
+                width: 50px;
+                height: 50px;
+            }
+            
+            /* Contact section */
+            .contact-content {
+                flex-direction: column;
+            }
+            
+            .contact-form-container, .contact-info-box {
+                width: 100%;
+                margin-bottom: 2rem;
+            }
+            
+            .contact-info-box {
+                order: -1;
+                margin-bottom: 3rem;
+            }
+            
+            /* Footer */
+            .footer-logo .logo-text {
+                font-size: 1.8rem;
+            }
+        }
+        
+        /* Very small mobile devices */
+        @media (max-width: 380px) {
+            .hero-title {
+                font-size: 2.2rem !important;
+            }
+            
+            .animated-name {
+                font-size: 2.8rem !important;
+                letter-spacing: 1px !important;
+            }
+            
+            .premium-description p {
+                font-size: 1.1rem !important;
+            }
+            
+            .with-line {
+                font-size: 1rem !important;
+            }
+            
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .cta-buttons {
+                gap: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .testimonial-text {
+                font-size: 1.2rem !important;
+            }
+            
+            .form-group label {
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Fix for fixed header spacing on small screens */
+        @media (max-width: 767px) {
+            body {
+                padding-top: 65px !important;
+            }
+            
+            nav {
+                height: 65px !important;
+                min-height: 65px !important;
+                max-height: 65px !important;
+            }
+            
+            .nav-container {
+                height: 65px !important;
+                min-height: 65px !important;
+                max-height: 65px !important;
+            }
+            
+            .logo-text {
+                font-size: 2rem !important;
+            }
+            
+            .hero-section {
+                margin-top: -65px !important;
+                padding-top: 65px !important;
+            }
+        }
+    </style>
+
+    <style>
+        /* Mobile testimonial card fixes */
+        @media (max-width: 767px) {
+            /* Fix for testimonial cards on mobile */
+            .testimonials-container {
+                min-height: 500px;
+                padding: 0 1rem;
+            }
+            
+            .testimonial-card .card-inner {
+                padding: 2rem 1.5rem;
+            }
+            
+            .testimonial-text {
+                font-size: 1.4rem !important;
+                margin-bottom: 1.8rem;
+            }
+            
+            .testimonial-rating {
+                right: 1rem;
+                bottom: 1rem;
+            }
+            
+            .testimonial-author {
+                gap: 1rem;
+            }
+            
+            /* Adjust contact form padding */
+            .contact-form {
+                padding: 1.5rem;
+            }
+            
+            .form-group input, 
+            .form-group textarea {
+                padding: 0.8rem 1rem 0.8rem 2.5rem;
+            }
+            
+            /* Ensure quote icons display properly on mobile */
+            .testimonial-card .quote-icon {
+                margin-bottom: 1rem;
+                margin-left: 0;
+            }
+            
+            .testimonial-card .quote-icon svg {
+                width: 40px;
+                height: 40px;
+            }
+            
+            /* Fix spacing issues in testimonial text */
+            .testimonial-text::before {
+                font-size: 4rem;
+                left: -10px;
+                top: -12px;
+            }
+        }
+    </style>
+    
+    <!-- Custom cursor script -->
+    <style>
+        /* Custom cursor styles - HIGHLY VISIBLE VERSION */
+        body {
+            cursor: none !important;
+        }
+        
+        .custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #ff00ff; /* Bright pink - very visible */
+            border: 3px solid #ffffff;
+            pointer-events: none;
+            z-index: 2147483647; /* Maximum possible z-index */
+            opacity: 1 !important;
+            display: block !important;
+            visibility: visible !important;
+            top: 0;
+            left: 0;
+            /* Hardware acceleration */
+            transform: translate(0, 0);
+            will-change: transform;
+            /* Make it stand out */
+            box-shadow: 0 0 20px 5px rgba(255, 0, 255, 0.8);
+            /* No transitions for now */
+            transition: none;
+        }
+        
+        .expandCursor {
+            width: 50px !important;
+            height: 50px !important;
+            background-color: #ff00ff !important;
+            border: 3px solid #ffffff !important;
+        }
+        
+        @media (max-width: 767px) {
+            body {
+                cursor: auto !important;
+            }
+            
+            .custom-cursor {
+                display: none !important;
+            }
+        }
+    </style>
+
+    <style>
+        /* Themed Custom Cursor - Matches Website Colors */
+        body {
+            cursor: none !important;
+        }
+        
+        .custom-cursor {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(108, 99, 255, 0.3);
+            border: 2px solid #6c63ff;
+            pointer-events: none;
+            z-index: 2147483647; /* Maximum possible z-index */
+            opacity: 0.9;
+            display: block !important;
+            visibility: visible !important;
+            top: 0;
+            left: 0;
+            /* Hardware acceleration */
+            transform: translate(-50%, -50%);
+            will-change: transform;
+            /* Elegant glow */
+            box-shadow: 0 0 10px rgba(108, 99, 255, 0.5);
+            /* Smooth transitions */
+            transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+        }
+        
+        .custom-cursor::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            transform: translate(-50%, -50%);
+        }
+        
+        .expandCursor {
+            width: 35px !important;
+            height: 35px !important;
+            background-color: rgba(108, 99, 255, 0.15) !important;
+            border: 2px solid rgba(108, 99, 255, 0.9) !important;
+            box-shadow: 0 0 15px rgba(108, 99, 255, 0.7) !important;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+        }
+        
+        @media (max-width: 767px) {
+            body {
+                cursor: auto !important;
+            }
+            
+            .custom-cursor {
+                display: none !important;
+            }
+        }
+    </style>
+
+    <!-- Direct cursor script - Simplified debug version -->
+    <script>
+      // Execute immediately without waiting for DOMContentLoaded
+      (function() {
+        // Skip for mobile
+        if (window.matchMedia('(max-width: 767px)').matches) {
+          return;
+        }
+        
+        // Get the cursor element
+        const cursor = document.getElementById('custom-cursor');
+        
+        // Log for debugging
+        console.log("Custom cursor initialized:", cursor);
+        
+        if (!cursor) return;
+        
+        // Force cursor to be visible
+        cursor.style.display = "block";
+        cursor.style.visibility = "visible";
+        cursor.style.opacity = "1";
+        
+        // Simple function to update cursor position
+        function moveCursor(e) {
+          const x = e.clientX;
+          const y = e.clientY;
+          
+          // Direct positioning without translation offsets for now
+          cursor.style.transform = `translate(${x}px, ${y}px)`;
+          
+          // Log position occasionally for debugging
+          if (Math.random() < 0.01) {
+            console.log("Cursor position:", x, y);
+          }
+        }
+        
+        // Simple event listeners
+        document.addEventListener('mousemove', moveCursor);
+        
+        // Log when mouse moves
+        document.addEventListener('mousemove', function() {
+          if (Math.random() < 0.01) {
+            console.log("Mouse is moving");
+          }
+        });
+        
+        // Set cursor to none on body
+        document.body.style.cursor = "none";
+        
+        console.log("Custom cursor setup complete");
+      })();
+    </script>
+
+    <script>
+      // Themed cursor implementation
+      (function() {
+        // Skip for mobile
+        if (window.matchMedia('(max-width: 767px)').matches) {
+          return;
+        }
+        
+        // Get cursor element
+        const cursor = document.querySelector('.custom-cursor');
+        if (!cursor) return;
+        
+        // Handle cursor movement with smooth follow
+        function updateCursorPosition(e) {
+          cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+        }
+        
+        // Use passive event listener for better performance
+        document.addEventListener('mousemove', updateCursorPosition, { passive: true });
+        
+        // Add interaction effects
+          document.addEventListener('mouseover', function(e) {
+          if (e.target.matches('a, button, .btn, .nav-link, .social-link, .filter-btn, .project-card, input, textarea')) {
+              cursor.classList.add('expandCursor');
+            }
+          });
+          
+          document.addEventListener('mouseout', function(e) {
+          if (e.target.matches('a, button, .btn, .nav-link, .social-link, .filter-btn, .project-card, input, textarea')) {
+              cursor.classList.remove('expandCursor');
+            }
+          });
+        
+        // Handle cursor visibility
+        document.addEventListener('mouseleave', function() {
+          cursor.style.opacity = '0';
+        });
+        
+        document.addEventListener('mouseenter', function() {
+          cursor.style.opacity = '1';
+        });
+        
+        // Hide default cursor
+        document.body.style.cursor = 'none';
+      })();
+    </script>
+
+    <script>
+        // Disable Three.js 3D model on mobile - only use Spline
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if device is mobile
+            const isMobile = window.matchMedia("(max-width: 767px)").matches;
+            
+            if (isMobile) {
+                // Create a style element to disable Three.js canvas
+                const styleEl = document.createElement('style');
+                styleEl.textContent = `
+                    #hero-3d-space canvas:not(canvas[data-spline-viewer]) {
+                        display: none !important;
+                        visibility: hidden !important;
+                        opacity: 0 !important;
+                        pointer-events: none !important;
+                    }
+                `;
+                document.head.appendChild(styleEl);
+                
+                // Prevent the initHero3D from running on mobile
+                window.preventHero3D = true;
+            }
+        });
+    </script>
 </head>
 <body>
     <!-- Loader -->
@@ -383,7 +1277,7 @@
     </div>
 
     <!-- Cursor -->
-    <div class="custom-cursor"></div>
+    <div class="custom-cursor" id="custom-cursor"></div>
     
     <!-- Navigation -->
     <nav>
@@ -407,21 +1301,102 @@
     
     <!-- Hero Section -->
     <section id="hero" class="hero-section">
-        <div class="hero-3d-container" id="hero-3d-space" style="width:100%;max-width:600px;margin:2rem auto 0 auto;min-height:350px;overflow:hidden;">
-            <spline-viewer 
-  url="https://prod.spline.design/pJmBesvLzyiLfOWa/scene.splinecode" 
-  style="width:100%;height:100%;min-height:350px;max-width:100%;display:block;z-index:1;">
-</spline-viewer>
-        </div>
-        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.98/build/spline-viewer.js"></script>
-        <div class="hero-content">
-            <h1 class="glitch-text">Hi, I'm <span class="highlight" data-glitch="Aditya Suryawanshi">Aditya Suryawanshi</span></h1>
+        <!-- SPECIAL CASE FOR TABLET: We'll completely flip the DOM structure via JavaScript for tablet-only view -->
+        <div class="hero-content" id="hero-content" style="margin-left: 2%;">
+            <h1 class="hero-title">Hi, I'm</h1>
+            <div class="animated-name-wrapper">
+                <span class="animated-name">Aditya Suryawanshi</span>
+            </div>
             <h2 class="subtitle" style="font-weight:bolder;">Frontend <i class="fa-solid fa-code"></i> Developer</h2>
-            <p class="description"> Creating <span style="background: linear-gradient(120deg, #775df9 , #fcefd3 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                font-weight: bold;">Next-gen</span> web/app experiences with animation and interactivity</p>
+            
+            <style>
+                .hero-content {
+                    padding-left: 1rem;
+                    max-width: 95%;
+                }
+                
+                .hero-title {
+                    font-size: 3.8rem;
+                    font-weight: 700;
+                    margin-bottom: 0.5rem;
+                    font-family: 'Space Grotesk', sans-serif;
+                    line-height: 1.2;
+                }
+                
+                .animated-name-wrapper {
+                    margin: 0.5rem 0 2rem;
+                }
+                
+                .animated-name {
+                    display: inline-block;
+                    position: relative;
+                    background: linear-gradient(120deg, #6c63ff, #ff6b6b, #6c63ff);
+                    background-size: 200% auto;
+                    color: transparent;
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                    animation: gradientText 3s ease-in-out infinite, typing 3s steps(20) 1;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    border-right: 5px solid #6c63ff;
+                    font-size: 5.5rem;
+                    font-weight: 700;
+                    letter-spacing: 6px;
+                    font-family: 'Righteous', cursive;
+                    text-shadow: 0 5px 15px rgba(108, 99, 255, 0.2);
+                    max-width: fit-content;
+                }
+                
+                @keyframes typing {
+                    from { width: 0 }
+                    to { width: 100% }
+                }
+                
+                @keyframes gradientText {
+                    0% { background-position: 0% 50% }
+                    50% { background-position: 100% 50% }
+                    100% { background-position: 0% 50% }
+                }
+                
+                @keyframes blinkCursor {
+                    from, to { border-color: transparent }
+                    50% { border-color: #6c63ff }
+                }
+                
+                /* Animation is complete after typing finishes */
+                .animated-name.completed {
+                    border-right: none;
+                    animation: gradientText 3s ease-in-out infinite;
+                }
+                
+                @media (max-width: 768px) {
+                    .hero-title {
+                        font-size: 3rem;
+                    }
+                    
+                    .animated-name {
+                        font-size: 4rem;
+                    }
+                }
+            </style>
+            
+            <div class="premium-description">
+                <p>Creating <span class="highlight-text">Next-gen</span> web/app experiences</p>
+                <p class="with-line">with animation and interactivity</p>
+            </div>
+            
+            <script>
+                // Add typing animation completion
+                document.addEventListener('DOMContentLoaded', function() {
+                    setTimeout(() => {
+                        const nameElement = document.querySelector('.animated-name');
+                        if (nameElement) {
+                            nameElement.classList.add('completed');
+                        }
+                    }, 3000); // Match to typing animation duration
+                });
+            </script>
+            
             <div class="cta-buttons">
                 <a href="#projects" class="btn primary-btn">View My Work</a>
                 <a href="#contact" class="btn secondary-btn">Let's Talk</a>
@@ -433,6 +1408,177 @@
                 <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
+        <div class="hero-3d-container" id="hero-3d-space" style="width:100%;max-width:900px;margin:2rem auto 0 auto;min-height:350px;overflow:hidden;position:relative;">
+            <spline-viewer 
+  url="https://prod.spline.design/pJmBesvLzyiLfOWa/scene.splinecode" 
+  style="width:100%; height:100%; min-height:350px; display:block;">
+</spline-viewer>
+          </div>
+          <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.98/build/spline-viewer.js"></script>
+          
+          <!-- Improved model positioning script -->
+          <script>
+            // Wait for DOM and Spline to load
+            document.addEventListener('DOMContentLoaded', function() {
+              // Give time for Spline to initialize
+              setTimeout(function() {
+                positionSplineModel();
+                
+                // Add resize handler with debounce
+                let resizeTimeout;
+                window.addEventListener('resize', function() {
+                  clearTimeout(resizeTimeout);
+                  resizeTimeout = setTimeout(positionSplineModel, 100);
+                });
+              }, 1000);
+              
+              // Position model based on screen size
+              function positionSplineModel() {
+                const splineViewer = document.querySelector('spline-viewer');
+                if (!splineViewer) return;
+                
+                // Reset any existing transform
+                splineViewer.style.transform = '';
+                
+                // Mobile vs desktop positioning
+                if (window.innerWidth <= 767) {
+                  // Mobile - shift left to center the model (-25%)
+                  splineViewer.style.transform = 'translateX(-25%)';
+                  
+                  // Add watermark blocker on mobile
+                  addWatermarkBlocker();
+                } else {
+                  // Desktop - larger right shift (30%) - unchanged
+                  splineViewer.style.transform = 'translateX(30%)';
+                }
+
+                // Mobile vs desktop positioning
+                if (window.innerWidth <= 767) {
+                  // Mobile - shift further left to center the model (-40%)
+                  splineViewer.style.transform = 'translateX(-40%)';
+                  
+                  // Add watermark blocker on mobile
+                  addWatermarkBlocker();
+                } else {
+                  // Desktop - larger right shift (30%) - unchanged
+                  splineViewer.style.transform = 'translateX(30%)';
+                }
+              }
+              
+              // Handle Spline watermark
+              function addWatermarkBlocker() {
+                if (window.innerWidth > 767) return; // Only on mobile
+                
+                const container = document.getElementById('hero-3d-space');
+                if (!container) return;
+                
+                // Remove existing blockers
+                const existingBlockers = container.querySelectorAll('.spline-watermark-blocker');
+                existingBlockers.forEach(el => el.remove());
+                
+                // Add new blocker
+                const blocker = document.createElement('div');
+                blocker.className = 'spline-watermark-blocker';
+                blocker.style.cssText = `
+                  position: absolute;
+                  bottom: 0;
+                  right: 0;
+                  width: 120px;
+                  height: 36px;
+                  background-color: #111111;
+                  z-index: 10000;
+                  pointer-events: none;
+                `;
+                container.appendChild(blocker);
+              }
+            });
+          </script>
+          
+        <style>
+            /* Force position the Spline model - using direct tag name for maximum specificity */
+            spline-viewer {
+                transform: translateX(30%) !important; /* Desktop/laptop view - right shift */
+                position: relative !important;
+                display: block !important;
+            }
+            
+            /* All mobile styles untouched, still at 5% as requested */
+            @media (max-width: 767px) {
+                /* Override for mobile only - keep desktop unchanged */
+                spline-viewer {
+                    transform: translateX(-25%) !important; /* Mobile view only - shift left to center the model */
+                    position: relative !important;
+                    opacity: 1 !important;
+                }
+                
+                /* Watermark blocker for mobile */
+                .hero-3d-container::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: 120px;
+                    height: 40px;
+                    background-color: #111111;
+                    z-index: 9900;
+                    pointer-events: none;
+                }
+            }
+            
+            .premium-description {
+                margin: 2rem 0;
+                font-family: 'Comfortaa', cursive;
+                position: relative;
+                max-width: 800px;
+                width: 100%;
+            }
+            
+            .premium-description p {
+                margin: 0;
+                font-size: 1.8rem;
+                line-height: 1.5;
+                color: rgba(255, 255, 255, 0.9);
+                letter-spacing: 0.5px;
+            }
+            
+            .highlight-text {
+                background: linear-gradient(120deg, #775df9, #fcefd3);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                font-weight: 700;
+                position: relative;
+                font-size: 2rem;
+            }
+            
+            .with-line {
+                position: relative;
+                font-size: 1.6rem;
+                color: rgba(255, 255, 255, 0.7);
+                padding-left: 40px;
+                margin-top: 7px;
+            }
+            
+            .with-line:before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 50%;
+                width: 30px;
+                height: 2px;
+                background: linear-gradient(to right, #775df9, rgba(255, 255, 255, 0.2));
+            }
+            
+            @media (max-width: 768px) {
+                .premium-description p {
+                    font-size: 1.5rem;
+                }
+                
+                .with-line {
+                    font-size: 1.4rem;
+                }
+            }
+        </style>
         <a href="#about" class="scroll-indicator">
             <i class="fas fa-chevron-down"></i>
         </a>
@@ -447,7 +1593,7 @@
         <div class="about-content">
             <div class="about-text">
                 <p>Hi , I'm 16 and i mastered the Frontend web & app development, i have 3+years of experience in this field and i worked with many clients, local businesses & startups helped them in creating a stunning landing pages ,portfolios ,business website and more... . </p>
-                <p>Currently , I'm pursuing computer science (BTech) from LNCT Bhopal (MP); and Data Science & Application (BS) from IIT Madras.</p>
+                <p style="font-family: 'Comfortaa', cursive;">Currently , I'm pursuing computer science (BTech) from LNCT Bhopal (MP); and Data Science & Application (BS) from IIT Madras.</p>
                 <div class="stats-container">
                     <div class="stat-item">
                         <span class="stat-number" data-target="3">0</span>
@@ -548,6 +1694,25 @@
                         </div>
 
 
+                        <div class="premium-skill-item" data-skill="React">
+                            <div class="premium-skill-header">
+                                <div class="premium-skill-icon">
+                                    <i class="fab fa-react"></i>
+                                </div>
+                                <div class="premium-skill-title">
+                                    <h4>React</h4>
+                                    <span class="premium-skill-level">Advanced</span>
+                                </div>
+                                <div class="premium-skill-percent">80%</div>
+                            </div>
+                            <div class="premium-skill-bar">
+                                <div class="premium-skill-progress">
+                                    <div class="premium-skill-progress-glow"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
                         <div class="premium-skill-item" data-skill="JavaScript">
                             <div class="premium-skill-header">
                                 <div class="premium-skill-icon">
@@ -566,23 +1731,7 @@
                             </div>
                         </div>
                         
-                        <div class="premium-skill-item" data-skill="React">
-                            <div class="premium-skill-header">
-                                <div class="premium-skill-icon">
-                                    <i class="fab fa-react"></i>
-                                </div>
-                                <div class="premium-skill-title">
-                                    <h4>React</h4>
-                                    <span class="premium-skill-level">Advanced</span>
-                                </div>
-                                <div class="premium-skill-percent">80%</div>
-                            </div>
-                            <div class="premium-skill-bar">
-                                <div class="premium-skill-progress">
-                                    <div class="premium-skill-progress-glow"></div>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
 
                     
@@ -685,7 +1834,7 @@
                 </div>
                 <div class="project-info">
                     <h3 class="project-title">E-commerce Website</h3>
-                    <p class="project-desc">A fully responsive e-commerce platform with product filtering, cart functionality, and payment integration.</p>
+                    <p class="project-desc" style="font-family: 'Comfortaa', cursive;">A fully responsive e-commerce platform with product filtering, cart functionality, and payment integration.</p>
                     <div class="project-tech">
                         <span class="tech-tag">React</span>
                         <span class="tech-tag">Node.js</span>
@@ -705,7 +1854,7 @@
                 </div>
                 <div class="project-info">
                     <h3 class="project-title">Dashboard UI</h3>
-                    <p class="project-desc">A clean and modern dashboard interface with data visualization and real-time updates.</p>
+                    <p class="project-desc" style="font-family: 'Comfortaa', cursive;">A clean and modern dashboard interface with data visualization and real-time updates.</p>
                     <div class="project-tech">
                         <span class="tech-tag">Vue.js</span>
                         <span class="tech-tag">D3.js</span>
@@ -725,7 +1874,7 @@
                 </div>
                 <div class="project-info">
                     <h3 class="project-title">3D Product Viewer</h3>
-                    <p class="project-desc">An interactive 3D product visualization tool allowing users to rotate, zoom, and explore products in detail.</p>
+                    <p class="project-desc" style="font-family: 'Comfortaa', cursive;">An interactive 3D product visualization tool allowing users to rotate, zoom, and explore products in detail.</p>
                     <div class="project-tech">
                         <span class="tech-tag">Three.js</span>
                         <span class="tech-tag">WebGL</span>
@@ -745,7 +1894,7 @@
                 </div>
                 <div class="project-info">
                     <h3 class="project-title">Social Media App</h3>
-                    <p class="project-desc">A feature-rich social platform with real-time messaging, post creation, and user interactions.</p>
+                    <p class="project-desc" style="font-family: 'Comfortaa', cursive;">A feature-rich social platform with real-time messaging, post creation, and user interactions.</p>
                     <div class="project-tech">
                         <span class="tech-tag">React</span>
                         <span class="tech-tag">GraphQL</span>
@@ -767,35 +1916,116 @@
         </div>
         <div class="testimonials-container">
             <div class="testimonial-card">
-                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                <p class="testimonial-text">"Working with this developer was an absolute pleasure. They delivered a stunning website that exceeded our expectations and helped grow our business."</p>
+                <div class="card-inner">
+                    <div class="card-background"></div>
+                    <div class="card-content">
+                        <div class="quote-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.4 24H8C6.4 24 5.2 22.8 5.2 21.2V14.8C5.2 13.2 6.4 12 8 12H14.4C16 12 17.2 13.2 17.2 14.8V21.2C17.2 29.2 10.8 32 10.8 32C10.8 32 14.4 29.2 14.4 24Z" fill="url(#quote-gradient-1)" fill-opacity="0.7"/>
+                                <path d="M30.8 24H24.4C22.8 24 21.6 22.8 21.6 21.2V14.8C21.6 13.2 22.8 12 24.4 12H30.8C32.4 12 33.6 13.2 33.6 14.8V21.2C33.6 29.2 27.2 32 27.2 32C27.2 32 30.8 29.2 30.8 24Z" fill="url(#quote-gradient-1)" fill-opacity="0.7"/>
+                                <defs>
+                                    <linearGradient id="quote-gradient-1" x1="5.2" y1="12" x2="33.6" y2="32" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#6c63ff"/>
+                                        <stop offset="1" stop-color="#ff6b6b"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <p class="testimonial-text">Aditya really made a awesome professional portfolio for me to apply for jobs, even better than what I expected, #value for money. You can check the final product that he delivered here: <a href="aryankhunt.vercel.app" style="color: #775df9;">aryankhunt.vercel.app</a></p>
                 <div class="testimonial-author">
+                            <div class="author-img-container">
                     <img src="https://via.placeholder.com/60x60" alt="Client" class="author-img">
+                            </div>
                     <div class="author-info">
-                        <h4 class="author-name">John Smith</h4>
-                        <p class="author-role">CEO, Tech Innovators</p>
+                        <h4 class="author-name">Aryan Khunt</h4>
+                        <p class="author-role">Data Analyst at USA</p>
+                            </div>
+                        </div>
+                        <div class="card-shine"></div>
+                        <div class="testimonial-rating">
+                            <span class="star full"><i class="fas fa-star"></i></span>
+                            <span class="star full"><i class="fas fa-star"></i></span>
+                            <span class="star full"><i class="fas fa-star"></i></span>
+                            <span class="star full"><i class="fas fa-star"></i></span>
+                            <span class="star full"><i class="fas fa-star"></i></span>
+                            <span class="rating-number">5.0</span>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="testimonial-card">
-                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                <p class="testimonial-text">"Incredibly talented developer who transformed our outdated website into a modern, responsive platform. The attention to detail was impressive."</p>
+                <div class="card-inner">
+                    <div class="card-background"></div>
+                    <div class="card-content">
+                        <div class="quote-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.4 24H8C6.4 24 5.2 22.8 5.2 21.2V14.8C5.2 13.2 6.4 12 8 12H14.4C16 12 17.2 13.2 17.2 14.8V21.2C17.2 29.2 10.8 32 10.8 32C10.8 32 14.4 29.2 14.4 24Z" fill="url(#quote-gradient-2)" fill-opacity="0.7"/>
+                                <path d="M30.8 24H24.4C22.8 24 21.6 22.8 21.6 21.2V14.8C21.6 13.2 22.8 12 24.4 12H30.8C32.4 12 33.6 13.2 33.6 14.8V21.2C33.6 29.2 27.2 32 27.2 32C27.2 32 30.8 29.2 30.8 24Z" fill="url(#quote-gradient-2)" fill-opacity="0.7"/>
+                                <defs>
+                                    <linearGradient id="quote-gradient-2" x1="5.2" y1="12" x2="33.6" y2="32" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#6c63ff"/>
+                                        <stop offset="1" stop-color="#ff6b6b"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <p class="testimonial-text">Incredibly talented developer who transformed our outdated website into a modern, responsive platform. The attention to detail was impressive.</p>
                 <div class="testimonial-author">
+                            <div class="author-img-container">
                     <img src="https://via.placeholder.com/60x60" alt="Client" class="author-img">
+                            </div>
                     <div class="author-info">
                         <h4 class="author-name">Sarah Johnson</h4>
                         <p class="author-role">Marketing Director, CreativeMinds</p>
+                            </div>
+                        </div>
+                        <div class="card-shine"></div>
+                        <div class="testimonial-rating">
+                            <span class="star full"><i class="fas fa-star"></i></span>
+                            <span class="star full"><i class="fas fa-star"></i></span>
+                            <span class="star full"><i class="fas fa-star"></i></span>
+                            <span class="star full"><i class="fas fa-star"></i></span>
+                            <span class="star half"><i class="fas fa-star-half-alt"></i></span>
+                            <span class="rating-number">4.4</span>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="testimonial-card">
-                <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                <p class="testimonial-text">"The 3D animations and interactions they implemented on our website have significantly increased user engagement and conversion rates. Highly recommended!"</p>
+                <div class="card-inner">
+                    <div class="card-background"></div>
+                    <div class="card-content">
+                        <div class="quote-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.4 24H8C6.4 24 5.2 22.8 5.2 21.2V14.8C5.2 13.2 6.4 12 8 12H14.4C16 12 17.2 13.2 17.2 14.8V21.2C17.2 29.2 10.8 32 10.8 32C10.8 32 14.4 29.2 14.4 24Z" fill="url(#quote-gradient-3)" fill-opacity="0.7"/>
+                                <path d="M30.8 24H24.4C22.8 24 21.6 22.8 21.6 21.2V14.8C21.6 13.2 22.8 12 24.4 12H30.8C32.4 12 33.6 13.2 33.6 14.8V21.2C33.6 29.2 27.2 32 27.2 32C27.2 32 30.8 29.2 30.8 24Z" fill="url(#quote-gradient-3)" fill-opacity="0.7"/>
+                                <defs>
+                                    <linearGradient id="quote-gradient-3" x1="5.2" y1="12" x2="33.6" y2="32" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#6c63ff"/>
+                                        <stop offset="1" stop-color="#ff6b6b"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <p class="testimonial-text">The 3D animations and interactions they implemented on our website have significantly increased user engagement and conversion rates. Highly recommended!</p>
                 <div class="testimonial-author">
+                            <div class="author-img-container">
                     <img src="https://via.placeholder.com/60x60" alt="Client" class="author-img">
+                            </div>
                     <div class="author-info">
                         <h4 class="author-name">Michael Chen</h4>
                         <p class="author-role">Founder, Digital Solutions</p>
+                            </div>
+                        </div>
+                        <div class="card-shine"></div>
+                        <div class="testimonial-rating">
+                            <span class="star full"><i class="fas fa-star"></i></span>
+                            <span class="star full"><i class="fas fa-star"></i></span>
+                            <span class="star full"><i class="fas fa-star"></i></span>
+                            <span class="star full"><i class="fas fa-star"></i></span>
+                            <span class="star half"><i class="fas fa-star-half-alt"></i></span>
+                            <span class="rating-number">4.7</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -811,53 +2041,524 @@
         </div>
     </section>
     
+    <style>
+        /* Premium Testimonial Cards */
+        .testimonials-section {
+            padding: 8rem 0;
+            background-color: rgba(10, 10, 15, 0.02);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonials-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            overflow: visible;
+            padding: 2rem 0;
+            min-height: 400px; /* Set minimum height to prevent layout shift */
+        }
+        
+        .testimonial-card {
+            transition: opacity 0.3s ease, transform 0.5s ease;
+            width: 100%;
+        }
+        
+        .testimonial-card[style*="display: none"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+        
+        /* Enhanced Quote Icon */
+        .quote-icon {
+            z-index: 5;
+            display: block !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        
+        .card-inner {
+            position: relative;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 3rem;
+            overflow: hidden;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.1),
+                0 1px 2px rgba(0, 0, 0, 0.05),
+                0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s ease;
+        }
+        
+        .card-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(
+                    45deg,
+                    rgba(108, 99, 255, 0.05) 0%,
+                    rgba(255, 107, 107, 0.05) 100%
+                );
+            border-radius: 16px;
+            z-index: -1;
+        }
+        
+        .card-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Enhanced Quote Icon */
+        .quote-icon {
+            position: relative;
+            margin-bottom: 1.5rem;
+            margin-left: -0.5rem;
+            width: 48px;
+            height: 48px;
+            opacity: 0.85;
+            filter: drop-shadow(0 2px 4px rgba(108, 99, 255, 0.3));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Enhanced Testimonial Text with Quote Marks */
+        .testimonial-text {
+            font-size: 1.7rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+            margin-bottom: 2.5rem;
+            position: relative;
+            text-align: left;
+            font-style: italic;
+            quotes: none;
+        }
+        
+        .testimonial-text a {
+            position: relative;
+            text-decoration: none;
+            color: #775df9;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            background: linear-gradient(90deg, #775df9, #6c63ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .testimonial-text a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #775df9, #6c63ff);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+        
+        .testimonial-text a:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        
+        /* New Quotation Marks for Text */
+        .testimonial-text::before {
+            content: open-quote;
+            position: absolute;
+            left: -1rem;
+            top: -0.7rem;
+            font-size: 3rem;
+            line-height: 1;
+            color: #6c63ff;
+            opacity: 0.7;
+            font-family: 'Georgia', serif;
+            font-style: normal;
+        }
+        
+        /* Remove existing quotes from the text content */
+        .testimonial-text {
+            position: relative;
+        }
+        
+        .testimonial-text span {
+            position: relative;
+            display: inline;
+        }
+        
+        /* Author Section */
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 1.5rem;
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .author-img-container {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: linear-gradient(45deg, #6c63ff, #ff6b6b);
+            padding: 2px;
+            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+        }
+        
+        .author-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+        }
+        
+        .author-info {
+            text-align: left;
+        }
+        
+        .author-name {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: rgba(255, 255, 255, 0.95);
+            background: linear-gradient(90deg, #fff, #eef);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .author-role {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Shine Effect */
+        .card-shine {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent, 
+                rgba(255, 255, 255, 0.1), 
+                transparent
+            );
+            transform: skewX(-20deg);
+            transition: all 0s ease;
+            opacity: 0;
+        }
+        
+        .testimonial-card:hover .card-inner {
+            transform: translateY(-10px);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.2),
+                0 1px 3px rgba(0, 0, 0, 0.1),
+                0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+        }
+        
+        .testimonial-card:hover .card-shine {
+            animation: shine 1.5s ease forwards;
+            opacity: 1;
+        }
+        
+        @keyframes shine {
+            0% {
+                left: -100%;
+                opacity: 0.5;
+            }
+            100% {
+                left: 200%;
+                opacity: 0;
+            }
+        }
+        
+        /* Star Rating Styles */
+        .testimonial-rating {
+            position: absolute;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+        }
+        
+        .star {
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 1.2rem;
+        }
+        
+        .star.full {
+            color: #FFD700;
+            filter: drop-shadow(0 0 2px rgba(255, 215, 0, 0.4));
+        }
+        
+        .star.half {
+            color: #FFD700;
+            filter: drop-shadow(0 0 2px rgba(255, 215, 0, 0.4));
+        }
+        
+        .rating-number {
+            margin-left: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Navigation Controls */
+        .testimonial-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 4rem;
+            gap: 2rem;
+        }
+        
+        .control-btn {
+            background: rgba(108, 99, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            color: #6c63ff;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .control-btn:hover {
+            background: rgba(108, 99, 255, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(108, 99, 255, 0.25);
+        }
+        
+        .control-dots {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .dot:after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 50%;
+            border: 1px solid rgba(108, 99, 255, 0);
+            transition: all 0.3s ease;
+        }
+        
+        .dot.active {
+            background: #6c63ff;
+            transform: scale(1.2);
+        }
+        
+        .dot.active:after {
+            border-color: rgba(108, 99, 255, 0.3);
+            animation: pulse 2s infinite;
+        }
+        
+        @media (max-width: 768px) {
+            .card-inner {
+                padding: 2.5rem 2rem;
+            }
+            
+            .testimonial-text {
+                font-size: 1.5rem;
+                line-height: 1.6;
+            }
+            
+            .author-name {
+                font-size: 1.4rem;
+            }
+            
+            .author-role {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+    
+    <!-- Testimonial Slider Enhancements */
+    <style>
+        /* Enhanced Quote SVG */
+        .quote-icon svg {
+            filter: drop-shadow(0 4px 8px rgba(108, 99, 255, 0.4));
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover .quote-icon svg {
+            transform: scale(1.1);
+            filter: drop-shadow(0 8px 16px rgba(108, 99, 255, 0.5));
+        }
+        
+        /* Fix for testimonial navigation buttons */
+        .testimonial-controls {
+            margin-top: 2.5rem;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .control-btn {
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+        
+        .control-btn:active {
+            transform: scale(0.92);
+        }
+        
+        /* Style for open quote mark */
+        .testimonial-text::before {
+            content: open-quote;
+            position: absolute;
+            left: -15px;
+            top: -15px;
+            font-size: 5rem;
+            color: rgba(108, 99, 255, 0.2);
+            font-family: 'Georgia', serif;
+            line-height: 1;
+        }
+        
+        /* Make active card more prominent */
+        .testimonial-card:first-child {
+            z-index: 3;
+        }
+    </style>
+    
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
         <div class="section-header">
+            
             <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
             <div class="section-underline"></div>
         </div>
         <div class="contact-content">
             <div class="contact-info-box">
+                <div class="contact-info-header">
+                    <div class="contact-header-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 16 16">
+                            <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
+                        </svg>
+                    </div>
                 <h3>Contact Information</h3>
+                </div>
                 <div class="info-item">
-                    <i class="fas fa-envelope"></i>
+                    <div style="width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.2); border-radius: 50%; margin-right: 1rem;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" viewBox="0 0 16 16">
+                            <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+                        </svg>
+                    </div>
                     <span>adityacodearena@gmail.com</span>
                 </div>
                 <div class="info-item">
-                    <i class="fas fa-phone-alt"></i>
+                    <div style="width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.2); border-radius: 50%; margin-right: 1rem;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                        </svg>
+                    </div>
                     <span>+91 8839624792</span>
                 </div>
                 <div class="info-item">
-                    <i class="fas fa-map-marker-alt"></i>
+                    <div style="width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.2); border-radius: 50%; margin-right: 1rem;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" viewBox="0 0 16 16">
+                            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                        </svg>
+                    </div>
                     <span>Madhya Pradesh, India</span>
                 </div>
                 <div class="contact-socials">
-                    <a href="#" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon" aria-label="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.025-.432.076-.649.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="contact-decoration">
+                    <div class="decoration-circle"></div>
+                    <div class="decoration-circle"></div>
                 </div>
             </div>
 
             <div class="contact-form-container">
                 <form class="contact-form">
                     <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <input type="text" id="name" name="name" placeholder=" " required>
                         <label for="name">Your Name</label>
+                        <i class="fas fa-user form-icon"></i>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <input type="email" id="email" name="email" placeholder=" " required>
                         <label for="email">Your Email</label>
+                        <i class="fas fa-envelope form-icon"></i>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        <input type="text" id="subject" name="subject" placeholder=" " required>
                         <label for="subject">Subject</label>
+                        <i class="fas fa-comment-alt form-icon"></i>
                     </div>
                     <div class="form-group">
-                        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                        <textarea id="message" name="message" placeholder=" " required></textarea>
                         <label for="message">Your Message</label>
+                        <i class="fas fa-pen-fancy form-icon"></i>
                     </div>
-                    <button type="submit" class="btn primary-btn">Send Message <i class="fas fa-paper-plane"></i></button>
+                    <button type="submit" class="btn primary-btn submit-btn">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
                 </form>
             </div>
         </div>
@@ -865,37 +2566,42 @@
     
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-inner">
             <div class="footer-glow"></div>
-            
-            
-                <div class="footer-brand">
+        <div class="footer-inner">
+            <div class="footer-content">
                     <div class="footer-logo">
-                        <span class="logo-text">Aditya<span class="highlight">.</span></span>
+                        <span class="logo-text">ADIT<span class="highlight">YA</span></span>
                     </div>
                     
                     <div class="social-links-wrapper">
                         <a href="#" class="social-link" aria-label="GitHub">
-                            <i class="fab fa-github"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                        </svg>
                         </a>
                         <a href="#" class="social-link" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.025-.432.076-.649.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                        </svg>
                         </a>
                         <a href="#" class="social-link" aria-label="Twitter">
-                            <i class="fab fa-twitter"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+                        </svg>
                         </a>
                         <a href="#" class="social-link" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                        </svg>
                         </a>
                     </div>
-                </div>
-                
-              
-            
-            
+            </div>
             <div class="footer-bottom">
                 <p class="copyright">&copy; <span id="current-year">2023</span> AdityaSuryawanshi. All Rights Reserved.</p>
             </div>
+            
+            
+            
         </div>
     </footer>
     
@@ -910,144 +2616,1170 @@
         // Update current year for copyright
         document.getElementById('current-year').textContent = new Date().getFullYear();
         
-        // Debug script to ensure contact section is visible
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                console.log("Debug script running to fix contact section");
-                const contactElements = {
-                    section: document.querySelector('.contact-section'),
-                    content: document.querySelector('.contact-content'),
-                    info: document.querySelector('.contact-info'),
-                    form: document.querySelector('.contact-form-container'),
-                    items: document.querySelectorAll('.contact-item'),
-                    social: document.querySelectorAll('.contact-social .social-icon')
-                };
-                
-                // Force visibility
-                if (contactElements.section) {
-                    contactElements.section.style.display = 'block';
-                    contactElements.section.style.opacity = '1';
-                    contactElements.section.style.visibility = 'visible';
-                }
-                
-                if (contactElements.content) {
-                    contactElements.content.style.display = 'grid';
-                    contactElements.content.style.opacity = '1';
-                    contactElements.content.style.visibility = 'visible';
-                }
-                
-                if (contactElements.info) {
-                    contactElements.info.style.display = 'block';
-                    contactElements.info.style.opacity = '1';
-                    contactElements.info.style.visibility = 'visible';
-                }
-                
-                if (contactElements.form) {
-                    contactElements.form.style.display = 'block';
-                    contactElements.form.style.opacity = '1';
-                    contactElements.form.style.visibility = 'visible';
-                }
-                
-                contactElements.items.forEach(item => {
-                    item.style.display = 'flex';
-                    item.style.opacity = '1';
-                    item.style.visibility = 'visible';
+        // Mobile Navigation Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            const navLinksItems = document.querySelectorAll('.nav-link');
+            
+            // Toggle mobile menu
+            navToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                document.body.classList.toggle('menu-open');
+            });
+            
+            // Close mobile menu when link is clicked
+            navLinksItems.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                    document.body.classList.remove('menu-open');
                 });
-                
-                contactElements.social.forEach(icon => {
-                    icon.style.display = 'flex';
-                    icon.style.opacity = '1';
-                    icon.style.visibility = 'visible';
-                });
-                
-                console.log("Contact section visibility enforced");
-                
-                // Fix footer contact icons
-                const footerContactIcons = document.querySelectorAll('.footer .contact-group .contact-icon');
-                footerContactIcons.forEach(icon => {
-                    icon.style.width = '40px';
-                    icon.style.height = '40px';
-                    icon.style.display = 'flex';
-                    icon.style.alignItems = 'center';
-                    icon.style.justifyContent = 'center';
-                    icon.style.borderRadius = '50%';
-                    icon.style.background = 'rgba(255, 255, 255, 0.05)';
-                    icon.style.border = '1px solid rgba(255, 255, 255, 0.1)';
-                    icon.style.color = 'rgba(255, 255, 255, 0.8)';
-                    icon.style.fontSize = '1.5rem';
-                    icon.style.opacity = '1';
-                    icon.style.visibility = 'visible';
-                });
-                
-                // Fix contact info box
-                const contactInfo = document.querySelector('.contact-info');
-                if (contactInfo) {
-                    contactInfo.style.padding = '4rem';
-                    contactInfo.style.borderRadius = '20px';
-                    contactInfo.style.background = 'rgba(255, 255, 255, 0.95)';
-                    contactInfo.style.backdropFilter = 'blur(10px)';
-                    contactInfo.style.border = '1px solid rgba(255, 255, 255, 0.1)';
-                    contactInfo.style.boxShadow = '0 20px 50px rgba(0, 0, 0, 0.08), 0 5px 15px rgba(108, 99, 255, 0.05)';
-                    contactInfo.style.display = 'block';
-                    contactInfo.style.opacity = '1';
-                    contactInfo.style.visibility = 'visible';
-                    contactInfo.style.zIndex = '5';
+            });
+            
+            // Add scrolled class to nav on scroll
+            function checkScroll() {
+                let nav = document.querySelector('nav');
+                if(window.scrollY > 20) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
                 }
-                
-                // Dynamically load footer-fix.js script
-                const footerFixScript = document.createElement('script');
-                footerFixScript.src = 'footer-fix.js';
-                document.body.appendChild(footerFixScript);
-                
-            }, 2000);
-        });
-    </script>
-    
-    <!-- Progress bar fix script -->
-    <script>
-        // Fix progress bars to ensure they display correctly
-        window.addEventListener('load', function() {
-            // Run immediately and then again after a delay to override any animations
-            fixProgressBars();
-            setTimeout(fixProgressBars, 1000);
-            setTimeout(fixProgressBars, 2500);
+            }
+            
+            // Check scroll position on load
+            checkScroll();
+            
+            // Listen for scroll events
+            window.addEventListener('scroll', checkScroll);
         });
         
-        function fixProgressBars() {
-            // Get all progress bars
-            const progressBars = document.querySelectorAll('.premium-skill-progress');
+        // Testimonial slider functionality - fixed version
+        document.addEventListener('DOMContentLoaded', function() {
+            const testimonialCards = document.querySelectorAll('.testimonial-card');
+            const prevBtn = document.querySelector('.control-btn.prev');
+            const nextBtn = document.querySelector('.control-btn.next');
+            const dots = document.querySelectorAll('.testimonial-controls .dot');
             
-            // Fix each progress bar
-            progressBars.forEach(bar => {
-                // Get the percentage from the parent's percentage div
-                const percentText = bar.closest('.premium-skill-item').querySelector('.premium-skill-percent').textContent;
-                const percent = percentText.replace('%', '');
-                
-                // Apply silver styling and force correct width
-                bar.style.background = "linear-gradient(90deg, rgba(192, 192, 200, 1), rgba(220, 220, 230, 1), rgba(192, 192, 200, 1), rgba(230, 230, 240, 1))";
-                bar.style.backgroundSize = "200% 100%";
-                bar.style.width = percent + "%";
-                bar.style.boxShadow = "0 0 8px rgba(192, 192, 200, 0.6)";
-                bar.style.animation = "silverShine 2s infinite ease-in-out";
-                
-                // Ensure bar container has proper styling
-                const barContainer = bar.closest('.premium-skill-bar');
-                barContainer.style.height = "1.2rem";
-                barContainer.style.backgroundColor = "rgba(240, 240, 240, 0.5)";
-                barContainer.style.boxShadow = "inset 0 2px 4px rgba(0, 0, 0, 0.1)";
-                barContainer.style.border = "1px solid rgba(220, 220, 220, 0.5)";
-                
-                // Fix glowing effect
-                const glow = bar.querySelector('.premium-skill-progress-glow');
-                if (glow) {
-                    glow.style.width = "60px";
-                    glow.style.background = "linear-gradient(to right, transparent, rgba(255, 255, 255, 0.9), transparent)";
+            // Setup initial state
+            testimonialCards.forEach((card, index) => {
+                if (index === 0) {
+                    card.classList.add('active');
+                    card.style.visibility = 'visible';
+                    card.style.height = 'auto';
+                    card.style.position = 'relative';
+                    card.style.opacity = '1';
+                    card.style.overflow = 'visible';
+                } else {
+                    card.classList.remove('active');
+                    card.style.visibility = 'hidden';
+                    card.style.position = 'absolute';
+                    card.style.opacity = '0';
+                    card.style.height = '0';
+                    card.style.overflow = 'hidden';
                 }
             });
             
-            console.log("Progress bars fixed with correct percentages and silver styling");
-        }
+            // Current slide tracker
+            let currentSlide = 0;
+            
+            // Function to change slide
+            function showSlide(index) {
+                // Hide current slide with proper transition
+                testimonialCards[currentSlide].style.opacity = '0';
+                
+                // Update dot indicators
+                dots[currentSlide].classList.remove('active');
+                dots[index].classList.add('active');
+                
+                // After opacity transition
+                setTimeout(() => {
+                    // Hide previous slide properly
+                    testimonialCards[currentSlide].classList.remove('active');
+                    testimonialCards[currentSlide].style.visibility = 'hidden';
+                    testimonialCards[currentSlide].style.position = 'absolute';
+                    testimonialCards[currentSlide].style.height = '0';
+                    testimonialCards[currentSlide].style.overflow = 'hidden';
+                    
+                    // Show new slide
+                    testimonialCards[index].classList.add('active');
+                    testimonialCards[index].style.visibility = 'visible';
+                    testimonialCards[index].style.position = 'relative';
+                    testimonialCards[index].style.height = 'auto';
+                    testimonialCards[index].style.overflow = 'visible';
+                    
+                    // Trigger reflow/repaint
+                    void testimonialCards[index].offsetWidth;
+                    
+                    // Fade in
+                    setTimeout(() => {
+                        testimonialCards[index].style.opacity = '1';
+                    }, 20);
+                    
+                    // Update current slide index
+                    currentSlide = index;
+                }, 300);
+            }
+            
+            // Next button click
+            nextBtn.addEventListener('click', function() {
+                let nextIndex = (currentSlide + 1) % testimonialCards.length;
+                showSlide(nextIndex);
+            });
+            
+            // Previous button click
+            prevBtn.addEventListener('click', function() {
+                let prevIndex = (currentSlide - 1 + testimonialCards.length) % testimonialCards.length;
+                showSlide(prevIndex);
+            });
+            
+            // Dot clicks
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    if (index !== currentSlide) {
+                        showSlide(index);
+                    }
+                });
+            });
+            
+            console.log('Testimonial slider initialized');
+        });
     </script>
 
+    <style>
+        /* Additional Testimonial Transition Styles */
+        .testimonial-card {
+            transition: opacity 0.3s ease;
+        }
+        
+        .testimonial-controls {
+            user-select: none;
+        }
+        
+        .control-btn {
+            cursor: pointer;
+        }
+        
+        /* Improved Button Visual Feedback */
+        .control-btn:active {
+            transform: scale(0.95);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Fix for quote icons in all testimonial cards */
+        .testimonial-card .quote-icon {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            pointer-events: none;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .testimonial-card .quote-icon svg {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+        
+        .testimonial-card svg path {
+            visibility: visible !important;
+            display: block !important;
+        }
+        
+        /* Fix hidden cards positioning */
+        .testimonial-card[style*="display: none"] {
+            display: block !important;
+            visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+    </style>
+
+    <!-- Fixed Testimonial Carousel -->
+    <style>
+        /* Simpler and more reliable testimonial carousel */
+        .testimonials-container {
+            position: relative;
+            min-height: 450px; /* Fixed height to prevent layout shifts */
+        }
+        
+        .testimonial-card {
+            display: none;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            visibility: hidden;
+        }
+        
+        .testimonial-card.active-card {
+            display: block;
+            opacity: 1;
+            position: relative;
+            visibility: visible;
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Make controls more visible and easy to click */
+        .testimonial-controls {
+            margin-top: 2rem;
+            padding: 1rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .control-btn {
+            background: rgba(108, 99, 255, 0.15);
+            border: 1px solid rgba(108, 99, 255, 0.3);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: #6c63ff;
+            z-index: 10;
+        }
+        
+        .control-btn:hover {
+            background: rgba(108, 99, 255, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .dot.active {
+            background: #6c63ff;
+            transform: scale(1.2);
+        }
+    </style>
+    
+    <script>
+        // Testimonial slider functionality - completely rewritten
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all testimonial elements
+            const cards = document.querySelectorAll('.testimonial-card');
+            const dots = document.querySelectorAll('.testimonial-controls .dot');
+            const prevBtn = document.querySelector('.testimonial-controls .prev');
+            const nextBtn = document.querySelector('.testimonial-controls .next');
+            
+            // No cards? Exit early
+            if (!cards.length) return;
+            
+            let currentIndex = 0;
+            
+            // Initialize: show first card, hide the rest
+            function initCarousel() {
+                cards.forEach((card, index) => {
+                    if (index === 0) {
+                        card.classList.add('active-card');
+                    } else {
+                        card.classList.remove('active-card');
+                    }
+                    // Force display property to prevent quirks
+                    card.style.display = index === 0 ? 'block' : 'none';
+                });
+                
+                // Set first dot as active
+                if (dots.length) {
+                    dots[0].classList.add('active');
+                }
+            }
+            
+            // Show specific slide
+            function showSlide(index) {
+                // Validate index
+                if (index < 0) index = cards.length - 1;
+                if (index >= cards.length) index = 0;
+                
+                // Hide all cards
+                cards.forEach((card, i) => {
+                    card.classList.remove('active-card');
+                    card.style.display = 'none';
+                    
+                    // Update dots
+                    if (dots[i]) {
+                        dots[i].classList.remove('active');
+                    }
+                });
+                
+                // Show selected card
+                cards[index].classList.add('active-card');
+                cards[index].style.display = 'block';
+                
+                // Update active dot
+                if (dots[index]) {
+                    dots[index].classList.add('active');
+                }
+                
+                // Update current index
+                currentIndex = index;
+                
+                // Log for debugging
+                console.log('Changed to slide', index);
+            }
+            
+            // Next slide
+            function nextSlide() {
+                showSlide(currentIndex + 1);
+            }
+            
+            // Previous slide
+            function prevSlide() {
+                showSlide(currentIndex - 1);
+            }
+            
+            // Set up event listeners
+            if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+            if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+            
+            // Dot navigation
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    showSlide(index);
+                });
+            });
+            
+            // Initialize on page load
+            initCarousel();
+            
+            // Optional: Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowLeft') prevSlide();
+                if (e.key === 'ArrowRight') nextSlide();
+            });
+        });
+    </script>
+
+    <!-- Mobile-only styles to hide Spline watermark -->
+    <style>
+      /* Only hide watermark on mobile */
+      @media (max-width: 767px) {
+        /* Target all possible watermark elements with high specificity */
+        spline-viewer::part(logo),
+        spline-viewer::part(watermark),
+        spline-viewer[data-rendered="true"] div[class*="logo"],
+        spline-viewer[data-rendered="true"] a[class*="logo"],
+        spline-viewer[data-rendered="true"] div[class*="watermark"],
+        spline-viewer[data-rendered="true"] a[class*="watermark"],
+        spline-viewer > div > div > a[href*="spline"],
+        spline-viewer > div > div > a[target="_blank"] {
+          display: none !important;
+          opacity: 0 !important;
+          visibility: hidden !important;
+          pointer-events: none !important;
+          height: 0 !important;
+          width: 0 !important;
+          position: absolute !important;
+          z-index: -9999 !important;
+        }
+        
+        /* Additional watermark blocker as fallback */
+        .hero-3d-container::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 90px;
+          height: 30px;
+          background-color: #111111;
+          z-index: 1000;
+          pointer-events: none;
+        }
+      }
+    </style>
+
+    <style>
+        /* Restore normal cursor */
+        body {
+            cursor: auto !important;
+        }
+    </style>
+    
+    <!-- Styles already updated in the tablet optimization section above -->
+    
+    <!-- Additional style to fix 3D model position on mobile only -->
+    <style>
+        /* Force the 3D model position to be further left on mobile only */
+        @media (max-width: 767px) {
+            spline-viewer {
+                transform: translateX(-40%) !important; /* Shift more to the left */
+            }
+            
+            /* Super aggressive Spline watermark hiding for mobile */
+            spline-viewer::part(logo),
+            spline-viewer::part(watermark),
+            spline-viewer *[class*="spline"],
+            spline-viewer *[class*="logo"],
+            spline-viewer *[class*="watermark"],
+            spline-viewer a,
+            spline-viewer a[target="_blank"],
+            spline-viewer > div > div > *:last-child {
+                display: none !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+                width: 0 !important;
+                height: 0 !important;
+                position: absolute !important;
+                pointer-events: none !important;
+                z-index: -9999 !important;
+            }
+            
+            /* Extra watermark blocker overlay */
+            .hero-3d-container::after {
+                content: '' !important;
+                position: absolute !important;
+                bottom: 0 !important;
+                right: 0 !important;
+                width: 150px !important;
+                height: 50px !important;
+                background-color: #111111 !important;
+                z-index: 9999999 !important;
+            }
+            
+            /* Add gap between contact section and footer on mobile */
+            .contact-section {
+                padding-bottom: 6rem !important; /* Increase bottom padding */
+                margin-bottom: 2rem !important; /* Add bottom margin */
+            }
+            
+            /* Add extra top space to footer on mobile */
+            .footer {
+                padding-top: 5rem !important; /* Increase top padding */
+                margin-top: 2rem !important; /* Add top margin */
+            }
+        }
+    </style>
+
+    <script>
+        // Auto rotation for testimonials
+        document.addEventListener('DOMContentLoaded', function() {
+            const testimonialCards = document.querySelectorAll('.testimonial-card');
+            const dots = document.querySelectorAll('.testimonial-controls .dot');
+            
+            // Find the active slide index
+            function getActiveIndex() {
+                for (let i = 0; i < testimonialCards.length; i++) {
+                    if (testimonialCards[i].style.opacity === '1') {
+                        return i;
+                    }
+                }
+                return 0; // Default to first slide
+            }
+            
+            // Trigger click on next button every 5 seconds
+            setInterval(function() {
+                const nextBtn = document.querySelector('.control-btn.next');
+                if (nextBtn) {
+                    nextBtn.click();
+                }
+            }, 5000);
+        });
+    </script>
+    
+    <!-- Aggressive Spline watermark remover script -->
+    <script>
+        // Wait for DOM content to load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Only on mobile
+            if (window.matchMedia('(max-width: 767px)').matches) {
+                console.log("Mobile detected, hiding Spline watermark");
+                
+                // Remove watermark after Spline loads
+                setTimeout(removeSplineWatermark, 1000);
+                setTimeout(removeSplineWatermark, 2000);
+                setTimeout(removeSplineWatermark, 3000);
+                
+                // Create a blocker element
+                createWatermarkBlocker();
+                
+                // Monitor for changes and keep removing watermark
+                setInterval(removeSplineWatermark, 2000);
+            }
+            
+            function createWatermarkBlocker() {
+                const heroContainer = document.getElementById('hero-3d-space');
+                if (!heroContainer) return;
+                
+                const blocker = document.createElement('div');
+                blocker.id = 'spline-watermark-blocker';
+                blocker.style.cssText = `
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: 150px;
+                    height: 50px;
+                    background-color: #111111;
+                    z-index: 999999;
+                `;
+                
+                heroContainer.style.position = 'relative';
+                heroContainer.appendChild(blocker);
+                
+                console.log("Added watermark blocker element");
+            }
+            
+            function removeSplineWatermark() {
+                const selectors = [
+                    'spline-viewer a',
+                    'spline-viewer a[target="_blank"]',
+                    'spline-viewer div[class*="logo"]',
+                    'spline-viewer div[class*="watermark"]',
+                    'spline-viewer > div > div > a',
+                    'spline-viewer iframe',
+                    'spline-viewer [data-name*="logo"]',
+                    'spline-viewer [data-name*="watermark"]',
+                    'spline-viewer > div > div:last-child'
+                ];
+                
+                let found = 0;
+                
+                selectors.forEach(selector => {
+                    const elements = document.querySelectorAll(selector);
+                    elements.forEach(el => {
+                        el.style.display = 'none';
+                        el.style.opacity = '0';
+                        el.style.visibility = 'hidden';
+                        el.style.width = '0';
+                        el.style.height = '0';
+                        el.style.overflow = 'hidden';
+                        el.style.position = 'absolute';
+                        el.style.zIndex = '-99999';
+                        el.style.pointerEvents = 'none';
+                        
+                        found++;
+                        
+                        try {
+                            el.remove();
+                        } catch (e) {
+                            console.log("Couldn't remove element, hiding instead");
+                        }
+                    });
+                });
+                
+                if (found > 0) {
+                    console.log(`Removed/hid ${found} potential watermark elements`);
+                }
+            }
+        });
+    </script>
+
+    <!-- Tablet-specific optimization styles -->
+    <style>
+        /* Tablet-specific styles (768px to 1024px) - UPDATED */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            /* Hero section optimization for tablets - CENTERED CONTENT BELOW MODEL */
+            .hero-content {
+                padding: 0 2rem !important;
+                padding-top: 520px !important; /* Force content below the model */
+                margin: 0 auto !important;
+                margin-top: 0 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                text-align: center !important; /* Center-aligned content */
+                position: relative !important;
+                z-index: 4 !important;
+            }
+            
+            .hero-title {
+                font-size: 3.5rem !important;
+                text-align: center !important;
+            }
+            
+            .animated-name {
+                font-size: 4.8rem !important;
+                letter-spacing: 3px !important;
+                margin: 0 auto !important;
+                text-align: center !important;
+            }
+            
+            .premium-description {
+                text-align: center !important;
+                margin: 1.5rem auto !important;
+            }
+            
+            .premium-description p {
+                font-size: 1.8rem !important;
+                text-align: center !important;
+            }
+            
+            .with-line {
+                margin-left: 0 !important;
+                padding-left: 0 !important;
+                padding-top: 45px !important;
+                display: inline-block !important;
+                position: relative !important;
+            }
+            
+            .with-line:before {
+                left: 50% !important;
+                top: 30px !important;
+                transform: translateX(-50%) !important;
+                width: 30px !important;
+            }
+            
+            .cta-buttons {
+                justify-content: center !important;
+                margin: 1.5rem auto !important;
+            }
+            
+            .social-links {
+                justify-content: center !important;
+                margin: 2rem auto !important;
+            }
+            
+            /* Position 3D model for tablet - FORCE it at the TOP */
+            .hero-section {
+                position: relative !important;
+                padding-top: 65px !important;
+                overflow: visible !important;
+                min-height: 900px !important;
+            }
+            
+            .hero-3d-container {
+                position: absolute !important;
+                top: 65px !important; /* Just below the header */
+                left: 0 !important;
+                right: 0 !important;
+                transform: none !important;
+                margin: 0 auto !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                height: 450px !important;
+                min-height: 450px !important;
+                z-index: 5 !important;
+                opacity: 1 !important;
+                overflow: visible !important;
+            }
+            
+            /* Additional tablet-specific 3D model positioning - centered horizontally */
+            spline-viewer {
+                transform: translateX(0%) scale(1.2) !important; /* Center horizontally and scale up for better visibility */
+                left: 0 !important;
+                right: 0 !important;
+                margin: 0 auto !important;
+                position: relative !important;
+                display: block !important;
+                opacity: 1 !important;
+                height: 450px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                min-height: 450px !important;
+            }
+            
+            /* Ensure Spline model is on TOP */
+            #hero-3d-space {
+                z-index: 5 !important;
+                position: relative !important;
+            }
+            
+            /* Hide custom 3D model (Three.js) but show Spline model */
+            #hero-3d-space canvas:not([data-spline-viewer]),
+            #hero-3d-space canvas:not(canvas[data-spline-viewer="true"]),
+            #hero-3d-space canvas:not(.spline-canvas),
+            #skills-3d-space canvas {
+                display: none !important;
+                visibility: hidden !important;
+                opacity: 0 !important;
+                pointer-events: none !important;
+                height: 0 !important;
+                width: 0 !important;
+                position: absolute !important;
+                z-index: -9999 !important;
+            }
+            
+            /* Ensure Spline model is visible */
+            spline-viewer canvas,
+            canvas[data-spline-viewer="true"] {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                height: 100% !important;
+                width: 100% !important;
+            }
+            
+            /* Watermark blocker for tablets */
+            .hero-3d-container::after {
+                content: '' !important;
+                position: absolute !important;
+                bottom: 0 !important;
+                right: 0 !important;
+                width: 140px !important;
+                height: 50px !important;
+                background-color: #111111 !important;
+                z-index: 9999999 !important;
+                pointer-events: none !important;
+            }
+            
+            /* Make the Skills section more like desktop/laptop on tablets */
+            .premium-skills-container {
+                display: flex !important;
+                flex-direction: row !important;
+                gap: 2rem !important;
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            
+            .premium-skills-category {
+                width: 100% !important;
+                margin-bottom: 0 !important;
+            }
+
+            /* Improve Skills section to look even more like laptop */
+            .skills-section {
+                padding: 6rem 2rem !important;
+                background-position: center !important;
+            }
+            
+            .premium-skills-container {
+                display: flex !important;
+                flex-direction: row !important;
+                gap: 1rem !important;
+                max-width: 100% !important;
+                width: 100% !important;
+                margin: 0 auto !important;
+                padding: 0 !important;
+            }
+            
+            .premium-skills-category {
+                width: 49% !important;
+                margin-bottom: 0 !important;
+                flex: 1 !important;
+                padding: 2rem !important;
+                background: rgba(255, 255, 255, 0.03) !important;
+                border-radius: 12px !important;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+            }
+            
+            .premium-skill-item {
+                margin-bottom: 1.5rem !important;
+            }
+            
+            .skills-intro {
+                max-width: 80% !important;
+                margin: 0 auto 3rem !important;
+                text-align: center !important;
+            }
+            
+            /* Make the Contact section more like desktop on tablets */
+            .contact-content {
+                display: flex !important;
+                flex-direction: row !important;
+                gap: 2rem !important;
+            }
+            
+            .contact-form-container, 
+            .contact-info-box {
+                width: 48% !important;
+            }
+            
+            /* Projects section - 2 columns on tablets */
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 1.5rem !important;
+            }
+            
+            /* Fix testimonial section blank error */
+            .testimonials-container {
+                max-width: 90% !important;
+                margin: 0 auto !important;
+                min-height: 450px !important; /* Fixed height to prevent layout shifts */
+            }
+            
+            .testimonial-card {
+                position: static !important; /* Prevent absolute positioning issues */
+                visibility: visible !important; /* Ensure visibility */
+                opacity: 1 !important;
+                overflow: visible !important;
+            }
+            
+            .testimonial-card:not(.active-card) {
+                display: none !important; /* Hide inactive cards completely */
+            }
+            
+            .testimonial-card.active-card {
+                display: block !important;
+                position: relative !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+            
+            /* Ensure all quote icons and elements are visible */
+            .testimonial-card .quote-icon,
+            .testimonial-card .card-content,
+            .testimonial-card .testimonial-text,
+            .testimonial-card .testimonial-author {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+            
+            .testimonial-card .card-inner {
+                padding: 2.5rem !important;
+                display: block !important;
+            }
+            
+            .testimonial-text {
+                font-size: 1.6rem !important;
+                display: block !important;
+            }
+            
+            /* About section for tablet - CENTERED CONTENT */
+            .about-content {
+                grid-template-columns: 1fr !important; /* Stack on tablet */
+                text-align: center !important;
+                display: grid !important;
+                align-items: center !important;
+                justify-items: center !important;
+            }
+            
+            .about-image {
+                max-width: 800px !important; /* Further increased width from 600px to 800px */
+                width: 100% !important;
+                margin: 0 auto 2rem auto !important;
+                order: -1 !important; /* Image on top */
+                display: block !important;
+                text-align: center !important;
+            }
+            
+            .about-image img {
+                margin: 0 auto !important;
+                display: block !important;
+                border-radius: 10px !important;
+            }
+            
+            .about-text {
+                text-align: center !important;
+                max-width: 90% !important;
+                margin: 0 auto !important;
+            }
+            
+            .about-text p {
+                text-align: center !important;
+                margin: 0 auto 1.5rem !important;
+            }
+            
+            /* Center statistics container */
+            .stats-container {
+                justify-content: center !important;
+                margin: 2rem auto !important;
+                display: flex !important;
+                gap: 2rem !important;
+            }
+            
+            /* Fix gap between contact and footer - EXTREMELY REDUCED */
+            .contact-section {
+                padding-bottom: 0 !important; /* No bottom padding */
+                margin-bottom: 0 !important; /* No bottom margin */
+            }
+            
+            .footer {
+                padding-top: 0 !important; /* No top padding */
+                margin-top: 0 !important; /* No top margin */
+                border-top: none !important; /* Remove any border that might add space */
+            }
+            
+            /* Ensure footer content is fully visible with minimal spacing */
+            .footer-inner {
+                padding-top: 0 !important;
+                margin-top: 0 !important;
+            }
+            
+            .footer-content {
+                margin-bottom: 0.3rem !important;
+                padding-top: 0.3rem !important;
+            }
+            
+            /* Remove footer glow that might add visual space */
+            .footer-glow {
+                display: none !important;
+            }
+            
+            /* Additional adjustments to minimize space */
+            .contact-section .section-header {
+                margin-bottom: 1rem !important;
+            }
+            
+            .footer-divider {
+                margin: 0.3rem 0 !important;
+            }
+            
+            /* Navigation adjustments for tablet */
+            .nav-link {
+                margin: 0 1rem !important;
+                font-size: 1.1rem !important;
+            }
+            
+            /* Misc tablet adjustments */
+            section {
+                padding: 6rem 2rem !important; /* More consistent padding */
+            }
+            
+            .section-title {
+                font-size: 2.8rem !important;
+        }
+      }
+    </style>
+
+    <style>
+        /* FORCE gap reduction between contact and footer - AGGRESSIVE APPROACH */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            /* Force contact section to have no bottom space */
+            #contact, .contact-section {
+                padding-bottom: 0 !important;
+                margin-bottom: 0 !important;
+                border-bottom: none !important;
+            }
+            
+            /* Force footer up with negative margin and transform */
+            .footer {
+                margin-top: -80px !important; /* Large negative margin to pull footer up */
+                padding-top: 0 !important;
+                position: relative !important;
+                z-index: 10 !important; /* Ensure footer stays above any content */
+            }
+            
+            /* Adjust other elements to accommodate the reduced gap */
+            .contact-form-container {
+                margin-bottom: 30px !important; /* Reduced margin */
+            }
+            
+            .contact-info-box {
+                margin-bottom: 30px !important; /* Reduced margin */
+            }
+            
+            /* Hide decorative elements that might take space */
+            .footer-glow, 
+            .contact-decoration,
+            .section-underline {
+                display: none !important;
+            }
+        }
+    </style>
+
+    <!-- Tablet-only layout modifications for hero section -->
+    <style>
+        /* Tablet-only hero section modifications (768px to 1024px) */
+        @media only screen and (min-width: 768px) and (max-width: 1024px) {
+            /* Center 3D model horizontally */
+            .hero-3d-container {
+                position: relative !important;
+                top: 0 !important;
+                transform: none !important;
+                margin: 120px auto 0 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                height: 400px !important;
+                min-height: 400px !important;
+                z-index: 1 !important;
+            }
+            
+            spline-viewer {
+                transform: translateX(0%) !important; /* Center horizontally */
+                left: 0 !important;
+                right: 0 !important;
+                margin: 0 auto !important;
+                position: relative !important;
+                display: block !important;
+                opacity: 1 !important;
+            }
+            
+            /* Move hero content below model and center it */
+            .hero-content {
+                position: relative !important;
+                margin: 0 auto !important;
+                padding: 0 2rem !important;
+                padding-top: 20px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                z-index: 2 !important;
+                text-align: center !important;
+            }
+            
+            .hero-title, 
+            .animated-name-wrapper, 
+            .premium-description,
+            .cta-buttons,
+            .social-links {
+                text-align: center !important;
+                justify-content: center !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+            
+            .hero-section {
+                display: flex !important;
+                flex-direction: column !important;
+                padding-top: 65px !important;
+            }
+            
+            /* Center the line in "with-line" element */
+            .with-line {
+                padding-left: 0 !important;
+                padding-top: 45px !important;
+                display: inline-block !important;
+                position: relative !important;
+            }
+            
+            .with-line:before {
+                left: 50% !important;
+                top: 30px !important;
+                transform: translateX(-50%) !important;
+                width: 30px !important;
+            }
+        }
+    </style>
+
+    <!-- Special script for tablet view - EXTREME VERSION -->
+    <script>
+        // Check if device is tablet and apply special positioning
+        document.addEventListener('DOMContentLoaded', function() {
+            const isTablet = window.matchMedia("(min-width: 768px) and (max-width: 1024px)").matches;
+            
+            if (isTablet) {
+                console.log("Tablet detected - applying EXTREME layout fix");
+                
+                // Execute once immediately
+                applyTabletFix();
+                
+                // And again after a delay to be sure
+                setTimeout(applyTabletFix, 500);
+                setTimeout(applyTabletFix, 1000);
+                setTimeout(applyTabletFix, 2000);
+                
+                // And periodically check for first 10 seconds
+                let checkCount = 0;
+                const intervalCheck = setInterval(function() {
+                    applyTabletFix();
+                    checkCount++;
+                    if (checkCount >= 10) clearInterval(intervalCheck);
+                }, 1000);
+                
+                function applyTabletFix() {
+                    // EXTREME MEASURE: Actually change the DOM order!
+                    const heroSection = document.querySelector('.hero-section');
+                    const heroContent = document.querySelector('.hero-content');
+                    const modelContainer = document.querySelector('.hero-3d-container');
+                    
+                    if (heroSection && heroContent && modelContainer) {
+                        // Remove and reinsert in the correct order
+                        heroContent.remove();
+                        modelContainer.remove();
+                        
+                        // First add model container 
+                        heroSection.appendChild(modelContainer);
+                        // Then add content
+                        heroSection.appendChild(heroContent);
+                        
+                        console.log("DOM order changed - model first, content second");
+                    }
+                    
+                    // Extreme styling for model container
+                    if (modelContainer) {
+                        modelContainer.style.cssText = `
+                            position: relative !important;
+                            top: 65px !important;
+                            left: 0 !important;
+                            right: 0 !important;
+                            margin: 0 auto 30px auto !important;
+                            width: 100% !important;
+                            height: 450px !important;
+                            min-height: 450px !important;
+                            z-index: 999 !important;
+                            display: block !important;
+                            visibility: visible !important;
+                            opacity: 1 !important;
+                            overflow: visible !important;
+                            transform: translateY(0) !important;
+                        `;
+                    }
+                    
+                    // Extreme styling for content
+                    if (heroContent) {
+                        heroContent.style.cssText = `
+                            position: relative !important;
+                            padding: 0 2rem !important;
+                            margin: 30px auto 0 auto !important;
+                            width: 100% !important;
+                            max-width: 100% !important;
+                            text-align: center !important;
+                            z-index: 99 !important;
+                            top: auto !important;
+                            left: auto !important;
+                            right: auto !important;
+                            transform: none !important;
+                        `;
+                    }
+                    
+                    // Ensure section is tall enough
+                    if (heroSection) {
+                        heroSection.style.cssText = `
+                            position: relative !important;
+                            display: flex !important;
+                            flex-direction: column !important;
+                            padding-top: 65px !important;
+                            min-height: 900px !important;
+                        `;
+                    }
+                    
+                    // Extra styling for Spline
+                    const splineViewer = document.querySelector('spline-viewer');
+                    if (splineViewer) {
+                        splineViewer.style.cssText = `
+                            transform: translateX(0%) scale(1.2) !important;
+                            margin: 0 auto !important;
+                            position: relative !important;
+                            display: block !important;
+                            opacity: 1 !important;
+                            z-index: 999 !important;
+                            visibility: visible !important;
+                        `;
+                    }
+                    
+                    // Hide any Three.js canvases
+                    const canvases = document.querySelectorAll('#hero-3d-space canvas:not([data-spline-viewer])');
+                    canvases.forEach(canvas => {
+                        canvas.style.display = 'none';
+                        canvas.style.visibility = 'hidden';
+                        canvas.style.opacity = '0';
+                        canvas.style.position = 'absolute';
+                        canvas.style.zIndex = '-9999';
+                        canvas.style.pointerEvents = 'none';
+                        canvas.width = 0;
+                        canvas.height = 0;
+                    });
+                }
+            }
+        });
+    </script>
 </body>
 </html>
