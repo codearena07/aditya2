@@ -17,6 +17,7 @@ const nextBtn = document.querySelector('.next');
 const testimonialCards = document.querySelectorAll('.testimonial-card');
 const testimonialsContainer = document.querySelector('.testimonials-container');
 const glitchText = document.querySelector('.glitch-text');
+const body = document.body;
 
 // ==================== General Variables ====================
 let currentTestimonial = 0;
@@ -27,6 +28,17 @@ let mouseY = 0;
 let testimonialInterval;
 let isPaused = false;
 let originalGlitchText = '';
+let isMobile = window.innerWidth < 768;
+
+// ==================== Mobile Detection ===================
+const checkIfMobile = () => {
+    isMobile = window.innerWidth < 768;
+    if (isMobile) {
+        customCursor.style.display = 'none';
+    } else {
+        customCursor.style.display = 'block';
+    }
+};
 
 // ==================== Loader Animation ====================
 const startLoading = () => {
@@ -50,6 +62,32 @@ const startLoading = () => {
                     duration: 0.3,
                     ease: 'power2.out'
                 });
+                
+                // Force Spline visibility
+                const splineContainer = document.querySelector('.hero-3d-container');
+                const splineViewer = splineContainer?.querySelector('spline-viewer');
+                if (splineViewer) {
+                    splineViewer.style.display = 'block';
+                    splineViewer.style.visibility = 'visible';
+                    splineViewer.style.opacity = '1';
+                }
+                
+                // Hide all Three.js canvases (disable old animations)
+                document.querySelectorAll('canvas:not(#gsCanvas)').forEach(canvas => {
+                    canvas.style.display = 'none';
+                    canvas.style.opacity = '0';
+                    canvas.style.visibility = 'hidden';
+                    canvas.parentElement?.classList?.add('hidden-canvas');
+                });
+                
+                // Ensure project cards visibility
+                setTimeout(() => {
+                    document.querySelectorAll('.project-card').forEach(card => {
+                        card.style.opacity = '1';
+                        card.style.visibility = 'visible';
+                        card.style.transform = 'none';
+                    });
+                }, 500);
     }, 100);
         }
     }, 20);
@@ -61,7 +99,7 @@ let cursorY = 0;
 let rafID = null;
 
 const updateCursor = (e) => {
-    if (!isLoaded) return;
+    if (!isLoaded || isMobile) return;
     
     // Just update the coordinates, don't modify DOM here
     cursorX = e.clientX;
@@ -79,7 +117,7 @@ const renderCursor = () => {
     customCursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
     
     // Create trail with lower frequency
-    if (Math.random() > 0.8 && isLoaded) {
+    if (Math.random() > 0.8 && isLoaded && !isMobile) {
         createCursorTrail();
     }
     
@@ -88,17 +126,19 @@ const renderCursor = () => {
 };
 
 const expandCursor = () => {
-    if (!isLoaded) return;
+    if (!isLoaded || isMobile) return;
     customCursor.classList.add('expandCursor');
 };
 
 const shrinkCursor = () => {
-    if (!isLoaded) return;
+    if (!isLoaded || isMobile) return;
     customCursor.classList.remove('expandCursor');
 };
 
 // Simplified trail creation
 const createCursorTrail = () => {
+    if (isMobile) return;
+    
     const trail = document.createElement('div');
     trail.className = 'cursor-trail';
     
@@ -122,7 +162,7 @@ const createCursorTrail = () => {
 
 // Add pulsing animation to cursor
 const startCursorPulse = () => {
-    if (!isLoaded) return;
+    if (!isLoaded || isMobile) return;
     
     setInterval(() => {
         if (!customCursor.classList.contains('expandCursor')) {
@@ -138,92 +178,156 @@ const startCursorPulse = () => {
     }, 3000);
 };
 
-// Add glitch effect to hero text
-const startGlitchEffect = () => {
-    const glitchText = document.querySelector('.glitch-text');
-    if (!glitchText) return;
-    
-    // Store the original text content
-    const originalName = glitchText.querySelector('.highlight').textContent;
-    
-    // Define the glitch character set
-    const glitchChars = '</;#{*?$%>@&^~[]{}`!|\\';
-    
-    // Function to apply a glitch to the name
-    const applyGlitch = () => {
-        if (!isLoaded) return;
-        
-        const nameElement = glitchText.querySelector('.highlight');
-        if (!nameElement) return;
-        
-        let glitchedName = '';
-        
-        // Determine how many characters to glitch (between 1 and 3)
-        const glitchCount = Math.floor(Math.random() * 3) + 1;
-        
-        // Pick random positions to glitch
-        const positions = [];
-        for (let i = 0; i < glitchCount; i++) {
-            positions.push(Math.floor(Math.random() * originalName.length));
-        }
-        
-        // Create the glitched name
-        for (let i = 0; i < originalName.length; i++) {
-            if (positions.includes(i)) {
-                glitchedName += glitchChars[Math.floor(Math.random() * glitchChars.length)];
-            } else {
-                glitchedName += originalName[i];
-            }
-        }
-        
-        // Apply the glitched name
-        nameElement.textContent = glitchedName;
-        
-        // Reset after a short delay
-        setTimeout(() => {
-            nameElement.textContent = originalName;
-        }, 100);
-    };
-    
-    // Apply glitch at random intervals
-    const randomGlitch = () => {
-        const minDelay = 2000; // Minimum time between glitches (ms)
-        const maxDelay = 5000; // Maximum time between glitches (ms)
-        const glitchDuration = Math.random() * (maxDelay - minDelay) + minDelay;
-        
-        setTimeout(() => {
-            // Apply multiple glitches in quick succession for a more intense effect
-            const glitchIntensity = Math.floor(Math.random() * 3) + 2; // 2-4 glitches in succession
-            
-            for (let i = 0; i < glitchIntensity; i++) {
-                setTimeout(applyGlitch, i * 150);
-            }
-            
-            // Continue with random glitches
-            if (isLoaded) {
-                randomGlitch();
-            }
-        }, glitchDuration);
-    };
-    
-    // Start the random glitching
-    randomGlitch();
-};
-
 // ==================== Navigation ====================
 const toggleMenu = () => {
     navLinks.classList.toggle('active');
+    
     if (navLinks.classList.contains('active')) {
         navToggle.innerHTML = '<i class="fas fa-times"></i>';
+        // Prevent body scrolling when menu is open on mobile
+        if (isMobile) {
+            body.classList.add('menu-open');
+            document.documentElement.classList.add('nav-open');
+            
+            // Add event listener to close menu when clicking outside
+            setTimeout(() => {
+                document.addEventListener('click', handleOutsideMenuClick);
+            }, 100);
+        }
     } else {
         navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        body.classList.remove('menu-open');
+        document.documentElement.classList.remove('nav-open');
+        document.removeEventListener('click', handleOutsideMenuClick);
     }
 };
 
 const closeMenu = () => {
+    if (!navLinks.classList.contains('active')) return;
+    
     navLinks.classList.remove('active');
     navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    body.classList.remove('menu-open');
+    document.documentElement.classList.remove('nav-open');
+    document.removeEventListener('click', handleOutsideMenuClick);
 };
+
+// Properly handle navigation when clicking outside the menu
+const handleOutsideMenuClick = (e) => {
+    if (isMobile && navLinks.classList.contains('active')) {
+        // Check if click was outside the nav menu and toggle button
+        if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+            closeMenu();
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    }
+};
+
+// Add touch support for elements on mobile
+const addTouchSupport = () => {
+    // Skip if not mobile
+    if (!isMobile) return;
+    
+    // Add touchstart event for buttons
+    document.querySelectorAll('.btn, .filter-btn, .project-link, .social-link, .nav-link').forEach(element => {
+        // Remove existing listeners first to avoid duplicates
+        element.removeEventListener('touchstart', handleTouchStart);
+        element.removeEventListener('touchend', handleTouchEnd);
+        
+        element.addEventListener('touchstart', handleTouchStart, { passive: true });
+        element.addEventListener('touchend', handleTouchEnd, { passive: true });
+    });
+    
+    // Fix 3D container for touch devices
+    const heroContainer = document.querySelector('.hero-3d-container');
+    if (heroContainer && isMobile) {
+        heroContainer.style.pointerEvents = 'none';
+    }
+};
+
+// Touch handlers
+function handleTouchStart() {
+    this.classList.add('touch-active');
+}
+
+function handleTouchEnd() {
+    this.classList.remove('touch-active');
+}
+
+// Fix scroll behavior for mobile
+const fixMobileScroll = () => {
+    // Add smooth scroll behavior for anchor links on mobile
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            if (this.getAttribute('href') !== '#') {
+                e.preventDefault();
+                closeMenu();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Add smooth scrolling with slight delay to allow menu to close
+        setTimeout(() => {
+                        const headerOffset = 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }, 300);
+                }
+            }
+        });
+    });
+    
+    // Ensure contact form is visible
+        setTimeout(() => {
+        const contactSection = document.querySelector('.contact-section');
+        if (contactSection) {
+            contactSection.style.opacity = '1';
+            contactSection.style.visibility = 'visible';
+        }
+        
+        const contactContent = document.querySelector('.contact-content');
+        if (contactContent) {
+            contactContent.style.opacity = '1';
+            contactContent.style.visibility = 'visible';
+            contactContent.style.display = 'grid';
+            contactContent.style.gridTemplateColumns = '1fr';
+            contactContent.style.width = '100%';
+        }
+    }, 1000);
+};
+
+// Function to help maintain form inputs on mobile
+const fixMobileFormInputs = () => {
+    if (!isMobile) return;
+    
+    const formInputs = document.querySelectorAll('.contact-form input, .contact-form textarea');
+    formInputs.forEach(input => {
+        input.removeEventListener('focus', handleInputFocus);
+        input.removeEventListener('blur', handleInputBlur);
+        
+        input.addEventListener('focus', handleInputFocus);
+        input.addEventListener('blur', handleInputBlur);
+    });
+};
+
+// Input focus handler
+function handleInputFocus() {
+    this.parentElement.classList.add('input-active');
+}
+
+// Input blur handler
+function handleInputBlur() {
+    if (this.value.trim() === '') {
+        this.parentElement.classList.remove('input-active');
+    }
+}
 
 // toggleTheme function is kept for backward compatibility but won't be used
 const toggleTheme = () => {
@@ -270,11 +374,27 @@ const handleScroll = () => {
 
 // ==================== Projects Filter ====================
 const filterProjects = (category) => {
+    // Update filter buttons UI first for immediate feedback
+    filterBtns.forEach(btn => {
+        if (btn.dataset.filter === category) {
+            btn.classList.add('active');
+            // For minimal design, we don't need to change styles here
+            // The CSS handles the active state with the ::after pseudo-element
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+    
+    // Filter projects with animation
     projectCards.forEach(card => {
         const cardCategory = card.dataset.category;
         
         if (category === 'all' || cardCategory === category) {
             card.classList.add('visible');
+            // Make sure element is fully displayed
+            card.style.display = 'block';
+            card.style.visibility = 'visible';
+            
             gsap.to(card, {
                 opacity: 1,
                 y: 0,
@@ -290,7 +410,13 @@ const filterProjects = (category) => {
                 y: 30,
                 scale: 0.95,
                 duration: 0.5,
-                ease: 'power2.out'
+                ease: 'power2.out',
+                onComplete: () => {
+                    // Only hide if we're still filtered out (not if filter changed during animation)
+                    if (!card.classList.contains('visible')) {
+                        card.style.display = 'none';
+                    }
+                }
             });
         }
     });
@@ -298,16 +424,36 @@ const filterProjects = (category) => {
 
 // ==================== Stats Counter Animation ====================
 const animateStats = () => {
+    // Force display of stats elements
+    document.querySelectorAll('.stat-item').forEach(item => {
+        item.style.opacity = '1';
+        item.style.visibility = 'visible';
+        item.style.display = 'flex';
+        item.style.flexDirection = 'column';
+        item.style.alignItems = 'center';
+        item.style.justifyContent = 'center';
+    });
+    
+    // Force visibility of stat numbers
+    document.querySelectorAll('.stat-number').forEach(num => {
+        num.style.opacity = '1';
+        num.style.visibility = 'visible';
+        num.style.display = 'block';
+    });
+    
+    // Animate the counters
     statsNumbers.forEach(stat => {
         const target = parseInt(stat.dataset.target);
         let count = 0;
-        const increment = target / 50;
+        const increment = Math.max(1, target / 30); // Ensure minimum increment of 1
+        const duration = 1500; // Total animation time in ms
+        const stepTime = duration / (target / increment);
         
         const updateCount = () => {
             if (count < target) {
                 count += increment;
                 stat.textContent = Math.ceil(count);
-                setTimeout(updateCount, 30);
+                setTimeout(updateCount, stepTime);
             } else {
                 stat.textContent = target;
             }
@@ -381,14 +527,12 @@ const prevTestimonial = () => {
     showTestimonial(prev);
 };
 
-// Auto slide testimonials
+// Auto slide testimonials - prevent any pausing
 const startTestimonialAutoSlide = () => {
     stopTestimonialAutoSlide(); // Clear any existing interval
     testimonialInterval = setInterval(() => {
-        if (!isPaused) {
             nextTestimonial();
-        }
-    }, 3500); // Change slide every 3.5 seconds
+    }, 3000); // Change slide every 3 seconds (was 3.5s)
     
     // Add pulse animation to active dot
     document.querySelector('.dot.active').classList.add('pulsing');
@@ -400,17 +544,19 @@ const stopTestimonialAutoSlide = () => {
     }
 };
 
+// Completely remove testimonial pausing functions
 const pauseTestimonialAutoSlide = () => {
-    isPaused = true;
-    // Remove pulse animation when paused
-    document.querySelector('.dot.active').classList.remove('pulsing');
+    // This function is intentionally empty now - do not pause testimonials
+    return;
 };
 
 const resumeTestimonialAutoSlide = () => {
-    isPaused = false;
-    // Add pulse animation when resumed
-    document.querySelector('.dot.active').classList.add('pulsing');
+    // This function is intentionally empty now - testimonials always running
+    return;
 };
+
+// Set isPaused to always be false
+isPaused = false;
 
 // ==================== GSAP Animations ====================
 const initAnimations = () => {
@@ -419,444 +565,47 @@ const initAnimations = () => {
     // Register ScrollTrigger plugin
     gsap.registerPlugin(ScrollTrigger);
     
-    // Project cards reveal animation
-    gsap.utils.toArray('.project-card').forEach((card, i) => {
-        gsap.from(card, {
-            scrollTrigger: {
-                trigger: '.projects-section',
-                start: 'top bottom-=100',
-                toggleActions: 'play none none none'
-            },
-            y: 100,
-            opacity: 0,
-            duration: 0.8,
-            delay: i * 0.1,
-            onStart: () => {
+    // Project cards reveal animation - simplified to ensure visibility
+    gsap.utils.toArray('.project-card').forEach((card) => {
+        // Ensure visibility regardless of animation
+        card.style.opacity = '1';
+        card.style.visibility = 'visible';
+        card.style.transform = 'none';
                 card.classList.add('visible');
-            }
-        });
     });
     
-    // Skills cards reveal animation
-    gsap.utils.toArray('.skill-card').forEach((card, i) => {
-        gsap.from(card, {
-            scrollTrigger: {
-                trigger: card,
-                start: 'top bottom-=100',
-                toggleActions: 'play none none none'
-            },
-            y: 50,
-            opacity: 0,
-            duration: 0.6,
-            delay: i * 0.1
-        });
+    // Skills cards reveal animation - simplified
+    gsap.utils.toArray('.premium-skill-item').forEach((card) => {
+        card.style.opacity = '1';
+        card.style.visibility = 'visible';
     });
     
-    // About section animation
-    gsap.from('.about-text', {
-        scrollTrigger: {
-            trigger: '.about-text',
-            start: 'top bottom-=100',
-            toggleActions: 'play none none none'
-        },
-        x: -100,
-        opacity: 0,
-        duration: 1
-    });
+    // About section animation - simplified for better mobile experience
+    const aboutText = document.querySelector('.about-text');
+    const aboutImage = document.querySelector('.about-image');
     
-    gsap.from('.about-image', {
-        scrollTrigger: {
-            trigger: '.about-image',
-            start: 'top bottom-=100',
-            toggleActions: 'play none none none'
-        },
-        x: 100,
-        opacity: 0,
-        duration: 1
-    });
-    
-    // Contact section animation - basic animations (keeping for backwards compatibility)
-    gsap.from('.contact-info', {
-        scrollTrigger: {
-            trigger: '.contact-info',
-            start: 'top bottom-=100',
-            toggleActions: 'play none none none'
-        },
-        x: -100,
-        opacity: 0,
-        duration: 1
-    });
-    
-    gsap.from('.contact-form-container', {
-        scrollTrigger: {
-            trigger: '.contact-form-container',
-            start: 'top bottom-=100',
-            toggleActions: 'play none none none'
-        },
-        x: 100,
-        opacity: 0,
-        duration: 1
-    });
+    if (aboutText) aboutText.style.opacity = '1';
+    if (aboutImage) aboutImage.style.opacity = '1';
     
     // Stats animation
-    ScrollTrigger.create({
-        trigger: '.stats-container',
-        start: 'top bottom-=150',
-        onEnter: () => animateStats()
-    });
+    animateStats();
     
-    // Progress bars animation
-    ScrollTrigger.create({
-        trigger: '.skills-grid',
-        start: 'top bottom-=150',
-        onEnter: () => animateProgressBars()
-    });
-    
-    // Explicitly call the contact animations
-    console.log("About to initialize contact animations...");
+    // Initialize contact animations
     initContactAnimations();
 };
 
 // ==================== THREE.JS 3D ANIMATIONS ====================
 
-// Hero Section 3D Animation
+// Hero Section 3D Animation - DISABLED but keeping the function for backwards compatibility
 const initHero3D = () => {
-    const container = document.getElementById('hero-3d-space');
-    
-    // Scene setup
-    const scene = new THREE.Scene();
-    
-    // Camera setup
-    const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-    camera.position.z = 20;
-    
-    // Renderer setup
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
-    container.appendChild(renderer.domElement);
-    
-    // Particles
-    const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 2000;
-    
-    const posArray = new Float32Array(particlesCount * 3);
-    
-    for (let i = 0; i < particlesCount * 3; i++) {
-        posArray[i] = (Math.random() - 0.5) * 50;
-    }
-    
-    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-    
-    // Material
-    const particlesMaterial = new THREE.PointsMaterial({
-        size: 0.1,
-        color: 0x6c63ff, // Primary theme color
-        transparent: true,
-        opacity: 0.8,
-        blending: THREE.AdditiveBlending
-    });
-    
-    // Mesh
-    const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-    scene.add(particlesMesh);
-    
-    // Add a torus knot for visual interest
-    const geometry = new THREE.TorusKnotGeometry(5, 1.5, 100, 16);
-    const material = new THREE.MeshBasicMaterial({ 
-        color: 0x6c63ff, // Primary theme color
-        wireframe: true,
-        transparent: true,
-        opacity: 0.3
-    });
-    const torusKnot = new THREE.Mesh(geometry, material);
-    scene.add(torusKnot);
-    
-    // Mouse movement effect
-    let mouseX = 0;
-    let mouseY = 0;
-    
-    const handleMouseMove = (e) => {
-        mouseX = (e.clientX / window.innerWidth) * 2 - 1;
-        mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
-    };
-    
-    window.addEventListener('mousemove', handleMouseMove);
-    
-    // Animation
-    const animate = () => {
-        requestAnimationFrame(animate);
-        
-        particlesMesh.rotation.x += 0.001;
-        particlesMesh.rotation.y += 0.001;
-        
-        torusKnot.rotation.x += 0.005;
-        torusKnot.rotation.y += 0.005;
-        
-        // Responsive to mouse
-        particlesMesh.rotation.x += mouseY * 0.01;
-        particlesMesh.rotation.y += mouseX * 0.01;
-        
-        torusKnot.rotation.x += mouseY * 0.01;
-        torusKnot.rotation.y += mouseX * 0.01;
-        
-        renderer.render(scene, camera);
-    };
-    
-    animate();
-    
-    // Handle resize
-    const handleResize = () => {
-        camera.aspect = container.clientWidth / container.clientHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(container.clientWidth, container.clientHeight);
-    };
-    
-    window.addEventListener('resize', handleResize);
-    
-    // Clean up function
-    return () => {
-        window.removeEventListener('mousemove', handleMouseMove);
-        window.removeEventListener('resize', handleResize);
-        container.removeChild(renderer.domElement);
-    };
+    // Skip creating ThreeJS elements and return a no-op cleanup function
+    return () => {};
 };
 
-// Skills Section 3D Animation
+// Skills Section 3D Animation - DISABLED but keeping the function for backwards compatibility
 const initSkills3D = () => {
-    const container = document.getElementById('skills-3d-space');
-    
-    // Scene setup
-    const scene = new THREE.Scene();
-    
-    // Camera setup
-    const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
-    camera.position.z = 30;
-    
-    // Renderer setup
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
-    container.appendChild(renderer.domElement);
-    
-    // Create particles for a premium look
-    const particlesGeometry = new THREE.BufferGeometry();
-    const particleCount = 700;
-    
-    const posArray = new Float32Array(particleCount * 3);
-    const scaleArray = new Float32Array(particleCount);
-    
-    for (let i = 0; i < particleCount; i++) {
-        // Position particles in a sphere-like shape
-        const radius = 25 + Math.random() * 15;
-        const theta = Math.random() * Math.PI * 2;
-        const phi = Math.random() * Math.PI;
-        
-        posArray[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
-        posArray[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
-        posArray[i * 3 + 2] = radius * Math.cos(phi);
-        
-        // Random scales for particles
-        scaleArray[i] = Math.random() * 1.5 + 0.5;
-    }
-    
-    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-    particlesGeometry.setAttribute('scale', new THREE.BufferAttribute(scaleArray, 1));
-    
-    // Custom shader material for more beautiful particles
-    const particlesMaterial = new THREE.ShaderMaterial({
-        uniforms: {
-            color1: { value: new THREE.Color(0x6c63ff) },
-            color2: { value: new THREE.Color(0x00c9a7) },
-            time: { value: 0 }
-        },
-        vertexShader: `
-            attribute float scale;
-            uniform float time;
-            varying vec3 vColor;
-            
-            void main() {
-                // Oscillating movement
-                vec3 pos = position;
-                pos.x += sin(pos.y * 0.05 + time) * 1.5;
-                pos.y += cos(pos.x * 0.05 + time) * 1.5;
-                pos.z += sin(pos.z * 0.05 + time) * 1.5;
-                
-                // Calculate color based on position
-                float colorMix = smoothstep(-20.0, 20.0, position.y);
-                vColor = mix(vec3(0.424, 0.388, 1.0), vec3(0.0, 0.788, 0.655), colorMix);
-                
-                // Position and size
-                vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
-                gl_PointSize = scale * (300.0 / -mvPosition.z);
-                gl_Position = projectionMatrix * mvPosition;
-            }
-        `,
-        fragmentShader: `
-            varying vec3 vColor;
-            
-            void main() {
-                // Create a circular particle
-                float distanceToCenter = length(gl_PointCoord - vec2(0.5));
-                float strength = 1.0 - smoothstep(0.0, 0.5, distanceToCenter);
-                
-                // Apply color and fading edges
-                gl_FragColor = vec4(vColor, strength * 0.7);
-            }
-        `,
-            transparent: true,
-        blending: THREE.AdditiveBlending,
-        depthWrite: false
-    });
-    
-    // Create the particle system
-    const particleSystem = new THREE.Points(particlesGeometry, particlesMaterial);
-    scene.add(particleSystem);
-    
-    // Create glowing tech icons (small glowing spheres)
-    const iconGeometry = new THREE.SphereGeometry(0.5, 32, 32);
-    const iconCount = 10;
-    const icons = [];
-    
-    for (let i = 0; i < iconCount; i++) {
-        // Create a glowing material
-        const color = i % 2 === 0 ? 0x6c63ff : 0x00c9a7;
-        const iconMaterial = new THREE.MeshBasicMaterial({
-            color: color,
-            transparent: true,
-            opacity: 0.8
-        });
-        
-        const icon = new THREE.Mesh(iconGeometry, iconMaterial);
-        
-        // Position randomly but more concentrated near the center
-        const distance = 8 + Math.random() * 10;
-        const angle = Math.random() * Math.PI * 2;
-        const height = (Math.random() - 0.5) * 20;
-        
-        icon.position.x = Math.cos(angle) * distance;
-        icon.position.y = height;
-        icon.position.z = Math.sin(angle) * distance;
-        
-        // Add a point light for glow effect
-        const light = new THREE.PointLight(color, 1, 10);
-        light.position.copy(icon.position);
-        
-        // Store icon properties for animation
-        icon.userData = {
-            orbitRadius: distance,
-            orbitAngle: angle,
-            orbitSpeed: 0.001 + Math.random() * 0.003,
-            pulseSpeed: 0.01 + Math.random() * 0.03,
-            light: light
-        };
-        
-        icons.push(icon);
-        scene.add(icon);
-        scene.add(light);
-    }
-    
-    // Add connecting lines between nearby icons (like a network)
-    const linesMaterial = new THREE.LineBasicMaterial({
-        color: 0x6c63ff,
-        transparent: true,
-        opacity: 0.2
-    });
-    
-    const linesGeometry = new THREE.BufferGeometry();
-    const linesGroup = new THREE.Group();
-    scene.add(linesGroup);
-    
-    // Function to update the lines
-    const updateLines = () => {
-        linesGroup.clear();
-        
-        for (let i = 0; i < icons.length; i++) {
-            for (let j = i + 1; j < icons.length; j++) {
-                const distance = icons[i].position.distanceTo(icons[j].position);
-                
-                if (distance < 15) {
-                    const opacity = 1 - distance / 15;
-                    const lineMaterial = new THREE.LineBasicMaterial({
-                        color: 0x6c63ff,
-                        transparent: true,
-                        opacity: opacity * 0.3
-                    });
-                    
-                    const points = [icons[i].position.clone(), icons[j].position.clone()];
-                    const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
-                    const line = new THREE.Line(lineGeometry, lineMaterial);
-                    linesGroup.add(line);
-                }
-            }
-        }
-    };
-    
-    // Animation
-    let time = 0;
-    const animate = () => {
-        requestAnimationFrame(animate);
-        
-        time += 0.01;
-        particlesMaterial.uniforms.time.value = time;
-        
-        // Slowly rotate the entire particle system
-        particleSystem.rotation.y += 0.001;
-        particleSystem.rotation.x = Math.sin(time * 0.1) * 0.1;
-        
-        // Animate each tech icon
-        icons.forEach(icon => {
-            // Orbit animation
-            icon.userData.orbitAngle += icon.userData.orbitSpeed;
-            icon.position.x = Math.cos(icon.userData.orbitAngle) * icon.userData.orbitRadius;
-            icon.position.z = Math.sin(icon.userData.orbitAngle) * icon.userData.orbitRadius;
-            
-            // Pulsing animation
-            const pulse = Math.sin(time * icon.userData.pulseSpeed) * 0.3 + 0.7;
-            icon.scale.set(pulse, pulse, pulse);
-            
-            // Update light position
-            icon.userData.light.position.copy(icon.position);
-            icon.userData.light.intensity = pulse;
-        });
-        
-        // Update connecting lines
-        if (time % 0.5 < 0.01) {
-            updateLines();
-        }
-        
-        renderer.render(scene, camera);
-    };
-    
-    animate();
-    
-    // Handle resize
-    const handleResize = () => {
-        camera.aspect = container.clientWidth / container.clientHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(container.clientWidth, container.clientHeight);
-    };
-    
-    window.addEventListener('resize', handleResize);
-    
-    // Handle mouse movement for interactive effect
-    const handleMouseMove = (e) => {
-        const mouseX = (e.clientX / window.innerWidth) * 2 - 1;
-        const mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
-        
-        // Subtle rotation based on mouse position
-        particleSystem.rotation.y = mouseX * 0.3;
-        particleSystem.rotation.x = mouseY * 0.3;
-    };
-    
-    window.addEventListener('mousemove', handleMouseMove);
-    
-    // Clean up function
-    return () => {
-        window.removeEventListener('resize', handleResize);
-        window.removeEventListener('mousemove', handleMouseMove);
-        container.removeChild(renderer.domElement);
-    };
+    // Skip creating ThreeJS elements and return a no-op cleanup function
+    return () => {};
 };
 
 // Skills Progress Animation
@@ -1132,10 +881,108 @@ const fixContactSectionVisibility = () => {
     }, 1500);
 };
 
-// Call this function after page load
+// Fine-tune mobile display after everything is loaded
+const enhanceMobileDisplay = () => {
+    if (!isMobile) return;
+    
+    // Improve hero content spacing on mobile
+    const heroContent = document.querySelector('.hero-content');
+    if (heroContent) {
+        // Ensure proper padding and centering
+        heroContent.style.paddingTop = window.innerWidth < 576 ? '2rem' : '3rem';
+        heroContent.style.paddingBottom = '1rem';
+        heroContent.style.paddingLeft = '1rem';
+        heroContent.style.paddingRight = '1rem';
+    }
+    
+    // Make buttons more mobile-friendly
+    const ctaButtons = document.querySelector('.cta-buttons');
+    if (ctaButtons) {
+        const buttons = ctaButtons.querySelectorAll('.btn');
+        buttons.forEach(btn => {
+            // Add proper touch target sizing
+            btn.style.minHeight = '50px';
+            btn.style.display = 'flex';
+            btn.style.alignItems = 'center';
+            btn.style.justifyContent = 'center';
+            
+            // Smaller screens need compact buttons
+            if (window.innerWidth < 576) {
+                btn.style.padding = '0.8rem 1.2rem';
+                btn.style.fontSize = '1.4rem';
+                btn.style.minWidth = '110px';
+            } else {
+                btn.style.padding = '1rem 2rem';
+                btn.style.fontSize = '1.6rem';
+            }
+            
+            // Add touch feedback
+            btn.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.98)';
+                this.style.opacity = '0.9';
+            }, {passive: true});
+            
+            btn.addEventListener('touchend', function() {
+                this.style.transform = 'scale(1)';
+                this.style.opacity = '1';
+            }, {passive: true});
+        });
+    }
+    
+    // Ensure hero 3D model is properly positioned
+    const hero3D = document.querySelector('.hero-3d-container');
+    if (hero3D) {
+        // Reduce opacity even more on very small screens
+        if (window.innerWidth < 400) {
+            hero3D.style.opacity = '0.55';
+            hero3D.style.top = '32%';
+        }
+    }
+    
+    // Ensure scroll indicator is visible and properly positioned
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        scrollIndicator.style.bottom = window.innerHeight < 700 ? '1rem' : '2rem';
+        scrollIndicator.style.opacity = '0.9';
+        scrollIndicator.style.animation = 'bounce 2s infinite';
+        
+        // Add bounce animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes bounce {
+                0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
+                40% {transform: translateX(-50%) translateY(-10px);}
+                60% {transform: translateX(-50%) translateY(-5px);}
+            }
+        `;
+        document.head.appendChild(style);
+    }
+};
+
+// Call this after all other initialization
 window.addEventListener('load', () => {
     setTimeout(fixContactSectionVisibility, 1000);
     setTimeout(fixContactSectionVisibility, 3000); // Try again after 3 seconds
+    
+    // Position 3D model in background
+    position3DModelInBackground();
+    
+    // Make sure about image has no bottom margin
+    const aboutImage = document.querySelector('.about-image');
+    if (aboutImage) {
+        aboutImage.style.marginBottom = '0';
+    }
+    
+    // Enhance mobile display after everything is loaded
+    setTimeout(enhanceMobileDisplay, 1500);
+    
+    // Reapply on orientation change
+    window.addEventListener('orientationchange', function() {
+        setTimeout(() => {
+            position3DModelInBackground();
+            enhanceMobileDisplay();
+        }, 500);
+    });
 });
 
 // ==================== Event Listeners ====================
@@ -1146,19 +993,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check theme
     checkTheme();
     
-    // Initialize 3D scenes
-    const cleanupHero3D = initHero3D();
-    const cleanupSkills3D = initSkills3D();
+    // Initialize mobile detection
+    checkIfMobile();
     
-    // Initialize cursor pulse animation
+    // Apply optimizations for 3D content
+    optimize3DforMobile();
+    
+    // Position 3D model in background
+    position3DModelInBackground();
+    
+    // Fix element visibility
+    fixContactSectionVisibility();
+    fixProjectVisibility();
+    
+    // Initialize cursor pulse animation if not mobile
+    if (!isMobile) {
     setTimeout(() => {
         startCursorPulse();
     }, 2000);
-    
-    // Initialize glitch text effect
-    setTimeout(() => {
-        startGlitchEffect();
-    }, 2500);
+    }
     
     // Set initial display for testimonials
     testimonialCards.forEach((card, index) => {
@@ -1171,22 +1024,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initially show all projects
     projectCards.forEach(card => {
         card.classList.add('visible');
+        card.style.opacity = '1';
+        card.style.visibility = 'visible';
+        card.style.transform = 'none';
     });
     
-    // Initialize projects section
+    // Initialize projects section - always show all projects
     filterProjects('all');
     
-    // Start testimonial auto-slide
+    // Start testimonial auto-slide - increased speed
     startTestimonialAutoSlide();
-    
-    // Pause testimonial slider on hover or click
-    testimonialsContainer.addEventListener('mouseenter', pauseTestimonialAutoSlide);
-    testimonialsContainer.addEventListener('mouseleave', resumeTestimonialAutoSlide);
-    testimonialDots.forEach(dot => {
-        dot.addEventListener('click', pauseTestimonialAutoSlide);
-    });
-    prevBtn.addEventListener('click', pauseTestimonialAutoSlide);
-    nextBtn.addEventListener('click', pauseTestimonialAutoSlide);
     
     // Event listeners
     document.addEventListener('mousemove', updateCursor);
@@ -1353,4 +1200,349 @@ window.addEventListener('load', () => {
     initContactAnimations();
     
     console.log("Window load: Contact section visibility enforced");
+});
+
+// ==================== Window Events ====================
+window.addEventListener('DOMContentLoaded', () => {
+    startLoading();
+    checkTheme();
+    checkIfMobile();
+    optimize3DforMobile();
+    
+    // Set up initial event listeners
+    window.addEventListener('mousemove', updateCursor);
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleWindowResize);
+    navToggle.addEventListener('click', toggleMenu);
+    
+    // Touch and mobile related initialization
+    addTouchSupport();
+    fixMobileScroll();
+    fixMobileFormInputs();
+    
+    // Set up project filtering
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterProjects(btn.getAttribute('data-filter'));
+        });
+    });
+    
+    // Set up interactive elements
+    document.querySelectorAll('a, button, .btn, .project-card, .social-link').forEach(el => {
+        el.addEventListener('mouseenter', expandCursor);
+        el.addEventListener('mouseleave', shrinkCursor);
+    });
+    
+    // Set up nav link clicks to close mobile menu
+    allNavLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+    
+    // Testimonial controls - keep next/prev buttons functionality but remove pausing
+    if (prevBtn) prevBtn.addEventListener('click', prevTestimonial);
+    if (nextBtn) nextBtn.addEventListener('click', nextTestimonial);
+    
+    // Testimonial dots - keep functionality but remove pausing
+    testimonialsContainer && testimonialDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => showTestimonial(index));
+    });
+    
+    // REMOVE all testimonial pausing event listeners
+    // Do not add any hover/touch events that would pause testimonials
+});
+
+// Handle window resize
+const handleWindowResize = () => {
+    checkIfMobile();
+    optimize3DforMobile();
+    
+    // Cancel animation frame and reapply for cursor trail on resize
+    if (rafID) {
+        cancelAnimationFrame(rafID);
+        rafID = null;
+        if (!isMobile) {
+            rafID = requestAnimationFrame(renderCursor);
+        }
+    }
+};
+
+// Optimize 3D content loading for mobile
+const optimize3DforMobile = () => {
+    // Get the 3D containers
+    const hero3D = document.querySelector('.hero-3d-container');
+    const skills3D = document.querySelector('.skills-3d-container');
+    
+    if (!hero3D) return;
+    
+    // Hide any three.js canvases
+    document.querySelectorAll('canvas:not(#gsCanvas)').forEach(canvas => {
+        canvas.style.display = 'none';
+        canvas.style.opacity = '0';
+        canvas.style.visibility = 'hidden';
+    });
+    
+    // Ensure spline viewer is visible
+    const splineViewer = hero3D.querySelector('spline-viewer');
+    if (splineViewer) {
+        splineViewer.style.display = 'block';
+        splineViewer.style.visibility = 'visible';
+        splineViewer.style.opacity = '1';
+    }
+    
+    // We'll use position3DModelInBackground() for positioning now
+    // This function will be called separately
+    
+    // Disable potentially heavy animations but keep the model visible
+    if (skills3D) {
+        skills3D.style.opacity = '0.6';
+        skills3D.style.pointerEvents = 'none';
+    }
+    
+    // Call the new positioning function
+    position3DModelInBackground();
+};
+
+// New function to fix project visibility issues
+const fixProjectVisibility = () => {
+    // Force project cards to be visible
+    const projects = document.querySelectorAll('.project-card');
+    projects.forEach(project => {
+        project.style.opacity = '1';
+        project.style.visibility = 'visible';
+        project.style.display = 'block';
+        project.style.transform = 'none';
+        project.classList.add('visible');
+        
+        // Ensure images are visible
+        const img = project.querySelector('.project-img img');
+        if (img) {
+            img.style.opacity = '1';
+            img.style.visibility = 'visible';
+            img.style.display = 'block';
+        }
+    });
+    
+    // Make sure the grid container is visible
+    const grid = document.querySelector('.projects-grid');
+    if (grid) {
+        grid.style.opacity = '1';
+        grid.style.visibility = 'visible';
+        grid.style.display = 'grid';
+    }
+};
+
+// Fix project card colors and visibility
+const fixProjectCards = () => {
+  const projectCards = document.querySelectorAll('.project-card');
+  projectCards.forEach(card => {
+    // Fix card background color
+    card.style.backgroundColor = 'rgba(28, 28, 32, 0.7)';
+    card.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.2)';
+    
+    // Fix info section
+    const infoSection = card.querySelector('.project-info');
+    if (infoSection) {
+      infoSection.style.backgroundColor = 'rgba(28, 28, 32, 0.7)';
+    }
+    
+    // Fix title color
+    const title = card.querySelector('.project-title');
+    if (title) {
+      title.style.color = '#fff';
+    }
+    
+    // Fix description color
+    const desc = card.querySelector('.project-desc');
+    if (desc) {
+      desc.style.color = '#aaa';
+    }
+    
+    // Fix tech tags
+    const tags = card.querySelectorAll('.tech-tag');
+    tags.forEach(tag => {
+      tag.style.backgroundColor = 'rgba(108, 99, 255, 0.15)';
+      tag.style.color = '#6c63ff';
+      tag.style.border = '1px solid rgba(108, 99, 255, 0.3)';
+    });
+  });
+};
+
+// Fix contact section scroll issues
+const fixContactScroll = () => {
+  // Target the contact form elements
+  const contactSection = document.querySelector('.contact-section');
+  const contactContent = document.querySelector('.contact-content');
+  const formContainer = document.querySelector('.contact-form-container');
+  const form = document.querySelector('.contact-form');
+  
+  // Fix scrolling issues by making sure elements don't have overflow: auto
+  [contactSection, contactContent, formContainer, form].forEach(el => {
+    if (el) {
+      el.style.overflow = 'visible';
+    }
+  });
+  
+  // Fix form field appearance
+  const formGroups = document.querySelectorAll('.form-group');
+  formGroups.forEach(group => {
+    group.style.overflow = 'visible';
+    group.style.marginBottom = '2rem';
+  });
+};
+
+// Position hero section correctly
+const fixHeroSection = () => {
+  // Get the hero section and header
+  const heroSection = document.querySelector('.hero-section');
+  const header = document.querySelector('nav');
+  
+  if (heroSection && header) {
+    // Calculate header height
+    const headerHeight = header.offsetHeight;
+    
+    // Set hero section to take full viewport minus header
+    heroSection.style.minHeight = `calc(100vh - ${headerHeight/2}px)`;
+    heroSection.style.paddingTop = `${headerHeight}px`;
+    
+    // Fix 3D model position
+    const heroModel = document.querySelector('.hero-3d-container');
+    if (heroModel) {
+      heroModel.style.transform = 'translateY(0)';
+      
+      const splineViewer = heroModel.querySelector('spline-viewer');
+      if (splineViewer) {
+        splineViewer.style.transform = 'scale(0.95) translateY(0)';
+      }
+    }
+  }
+};
+
+// Position 3D model in background of hero section
+const position3DModelInBackground = () => {
+    const heroSection = document.querySelector('.hero-section');
+    const hero3D = document.querySelector('.hero-3d-container');
+    const heroContent = document.querySelector('.hero-content');
+    
+    if (!heroSection || !hero3D || !heroContent) return;
+    
+    // Make hero section relative positioned
+    heroSection.style.position = 'relative';
+    heroSection.style.overflow = 'hidden';
+    
+    // Position 3D model absolutely
+    hero3D.style.position = 'absolute';
+    
+    // Shift the model position based on screen size
+    if (isMobile) {
+        // On mobile: position higher up and reduce opacity more
+        hero3D.style.top = window.innerWidth < 576 ? '35%' : '40%'; // Shifted up more on smaller screens
+        hero3D.style.opacity = '0.65'; // Reduced brightness/opacity on mobile
+    } else {
+        // On desktop
+        hero3D.style.top = '45%';
+        hero3D.style.opacity = '0.75';
+    }
+    
+    hero3D.style.left = '50%';
+    hero3D.style.transform = 'translate(-50%, -50%)';
+    hero3D.style.width = '100%';
+    hero3D.style.maxWidth = isMobile ? '600px' : '700px';
+    hero3D.style.minHeight = isMobile ? '380px' : '450px';
+    hero3D.style.zIndex = '1';
+    
+    // Make sure spline viewer is visible
+    const splineViewer = hero3D.querySelector('spline-viewer');
+    if (splineViewer) {
+        splineViewer.style.height = isMobile ? '380px' : '450px';
+        splineViewer.style.width = '100%';
+        splineViewer.style.display = 'block';
+        splineViewer.style.visibility = 'visible';
+        splineViewer.style.opacity = '1';
+    }
+    
+    // Position content above 3D model
+    heroContent.style.position = 'relative';
+    heroContent.style.zIndex = '2';
+    heroContent.style.paddingTop = '4rem';
+    heroContent.style.display = 'flex';
+    heroContent.style.flexDirection = 'column';
+    heroContent.style.alignItems = 'center';
+    heroContent.style.textAlign = 'center';
+    
+    // Add text shadows for better visibility
+    const glitchText = heroContent.querySelector('.glitch-text');
+    if (glitchText) {
+        glitchText.style.textShadow = '0 2px 10px rgba(0,0,0,0.5)';
+        glitchText.style.fontSize = isMobile ? '4rem' : '4.8rem';
+        glitchText.style.marginBottom = '2rem';
+    }
+    
+    const subtitle = heroContent.querySelector('.subtitle');
+    if (subtitle) {
+        subtitle.style.textShadow = '0 2px 8px rgba(0,0,0,0.4)';
+        subtitle.style.fontSize = isMobile ? '2.2rem' : '2.6rem';
+        subtitle.style.marginTop = '2rem';
+        subtitle.style.marginBottom = '2.5rem';
+    }
+    
+    const description = heroContent.querySelector('.description');
+    if (description) {
+        description.style.textShadow = '0 2px 6px rgba(0,0,0,0.4)';
+        description.style.fontSize = isMobile ? '1.6rem' : '1.8rem';
+        description.style.marginBottom = '3.5rem';
+        description.style.maxWidth = '85%';
+    }
+    
+    // Better spacing for buttons - always keep horizontal layout
+    const ctaButtons = heroContent.querySelector('.cta-buttons');
+    if (ctaButtons) {
+        ctaButtons.style.marginTop = '2.5rem';
+        ctaButtons.style.marginBottom = '2.5rem';
+        ctaButtons.style.display = 'flex';
+        ctaButtons.style.flexDirection = 'row'; // Always keep horizontal
+        ctaButtons.style.gap = isMobile ? '1.5rem' : '2rem';
+        ctaButtons.style.justifyContent = 'center';
+        ctaButtons.style.width = '100%'; 
+        
+        // Make buttons fit better on small screens but keep horizontal
+        if (window.innerWidth < 576) {
+            // Make buttons smaller but keep them in a row
+            const buttons = ctaButtons.querySelectorAll('.btn');
+            buttons.forEach(btn => {
+                btn.style.padding = '1rem 1.5rem';
+                btn.style.fontSize = '1.4rem';
+            });
+        }
+    }
+    
+    const socialLinks = heroContent.querySelector('.social-links');
+    if (socialLinks) {
+        socialLinks.style.marginTop = '3.5rem';
+        socialLinks.style.display = 'flex';
+        socialLinks.style.gap = '1.5rem';
+        socialLinks.style.justifyContent = 'center';
+    }
+    
+    // Fix scroll indicator position
+    const scrollIndicator = heroSection.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        scrollIndicator.style.position = 'absolute';
+        scrollIndicator.style.bottom = '2rem';
+        scrollIndicator.style.left = '50%';
+        scrollIndicator.style.transform = 'translateX(-50%)';
+        scrollIndicator.style.zIndex = '3';
+        scrollIndicator.style.fontSize = '2rem';
+        scrollIndicator.style.color = '#ffffff';
+        scrollIndicator.style.textShadow = '0 2px 5px rgba(0,0,0,0.3)';
+    }
+};
+
+// Update when window is resized
+window.addEventListener('resize', () => {
+    position3DModelInBackground();
+});
+
+// Also call this after the page has loaded
+window.addEventListener('load', () => {
+    position3DModelInBackground();
 });

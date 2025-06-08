@@ -3,7 +3,7 @@
     /* Colors */
     --primary-color: #6c63ff;
     --secondary-color: #4d44db;
-    --accent-color: #00c9a7;
+    --accent-color: #4d44db;
     --text-color: #333;
     --text-light: #777;
     --bg-color: #f9f9f9;
@@ -16,7 +16,7 @@
     --border-color: rgba(0, 0, 0, 0.1);
     --dark-border: rgba(255, 255, 255, 0.1);
     --gradient-primary: linear-gradient(135deg, #6c63ff, #4d44db);
-    --gradient-accent: linear-gradient(135deg, #00c9a7, #00a389);
+    --gradient-accent: linear-gradient(135deg, #6c63ff, #4d44db);
     
     /* Typography */
     --heading-font: 'Space Grotesk', sans-serif;
@@ -1374,20 +1374,6 @@ img:hover {
 
 .testimonials-container:hover {
     box-shadow: 0 10px 30px rgba(108, 99, 255, 0.3);
-}
-
-.testimonials-container:hover::after {
-    content: 'Paused';
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: rgba(108, 99, 255, 0.7);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 1.2rem;
-    font-weight: 500;
-    z-index: 10;
 }
 
 .testimonial-card {
